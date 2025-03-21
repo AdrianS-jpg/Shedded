@@ -52,6 +52,7 @@ public class Movement : MonoBehaviour
     {
         if (context.performed && canDash)
         {
+            Debug.Log("Works");
             StartCoroutine(DashCoroutine());
         }
     }
@@ -60,6 +61,7 @@ public class Movement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+        Debug.Log("Works");
 
         _trailRenderer.emitting = true;
         float dashDirection = isFacingRight ? 1f : -1f;
@@ -75,6 +77,6 @@ public class Movement : MonoBehaviour
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
-            ;
+        Debug.Log("still Works");
     }
 }
