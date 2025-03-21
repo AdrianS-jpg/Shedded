@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/soup things/adrian.unity
+    guid: 306fa9f47963de24ba1af8af02fa0e11
+  - enabled: 1
+    path: Assets/venture items/Scene/Ember.unity
+    guid: ca197326cb349f9429389f7d8be2a1df
+  - enabled: 1
+    path: Assets/soup things/Main Menu.unity
+    guid: a2271a5c24e0d99499d657bf661b64b6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 7d4cc7c11ce4b114c8545ea74d1b58e3, type: 3}
   m_UseUCBPForAssetBundles: 0

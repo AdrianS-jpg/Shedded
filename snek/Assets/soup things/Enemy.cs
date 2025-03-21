@@ -34,13 +34,6 @@ public class Enemy : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-
-        if (col.gameObject.tag == "hurtbox")
-            health -= 3;
-    }
-
     private void OnMouseEnter()
     {
         Debug.Log("asfasdfasdf");
