@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Movement : MonoBehaviour
     bool isDashing;
     bool canDash = true;
     TrailRenderer _trailRenderer;
+  
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -33,6 +35,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
         _rb.linearVelocityX = _moveAmount.x * movementSpeed;
+        _rb.linearVelocityY = _moveAmount.y * movementSpeed;
+    
 
 
         // put ani code above the if isDashing for it to run properly
@@ -52,7 +56,7 @@ public class Movement : MonoBehaviour
     {
         if (context.performed && canDash)
         {
-            Debug.Log("Works");
+           
             StartCoroutine(DashCoroutine());
         }
     }
@@ -61,22 +65,39 @@ public class Movement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        Debug.Log("Works");
+        
 
-        _trailRenderer.emitting = true;
+        // _trailRenderer.emitting = true;
         float dashDirection = isFacingRight ? 1f : -1f;
 
-        _rb.linearVelocity = new Vector2(dashDirection * dashSpeed, _rb.linearVelocity.y); // Dash Movement
+        Vector2 dash = _rb.position;
+
+        dash += new Vector2((dashSpeed * 0.1f), _rb.linearVelocity.y);
+
+        _rb.MovePosition(dash);  // Dash Movement
+        Debug.Log("Works");
+
+        //for (int i = 0; i < 100; i++)
+        //{
+        //    Vector2 pos = _rb.position;
+
+        //    pos += new Vector2(0.1f, 0.0f);
+
+        //    _rb.MovePosition(pos);
+
+        //    yield return null;
+
+        //}
 
         yield return new WaitForSeconds(dashDuration);
 
-        _rb.linearVelocity = new Vector2(0f, _rb.linearVelocity.y);
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.y);
 
         isDashing = false;
-        _trailRenderer.emitting = false;
+       // _trailRenderer.emitting = false;
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
-        Debug.Log("still Works");
+        
     }
 }
