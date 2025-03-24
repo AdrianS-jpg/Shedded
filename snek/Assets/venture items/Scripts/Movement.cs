@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     private Rigidbody2D _rb;
     private Vector2 _moveAmount;
+    private float dashDirection;
+   
 
     [Header("Dash/Sprint")]
     public float dashSpeed = 20f;
@@ -20,27 +22,27 @@ public class Movement : MonoBehaviour
     bool isDashing;
     bool canDash = true;
     TrailRenderer _trailRenderer;
-  
+
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+       
+        
     }
 
     private void Start()
     {
         _trailRenderer = GetComponent<TrailRenderer>();
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        _rb.linearVelocityX = _moveAmount.x * movementSpeed;
-        _rb.linearVelocityY = _moveAmount.y * movementSpeed;
-    
+        _rb.linearVelocity = _moveAmount * movementSpeed;
 
 
         // put ani code above the if isDashing for it to run properly
-         
+
         if (isDashing)
         {
             return;
@@ -56,7 +58,6 @@ public class Movement : MonoBehaviour
     {
         if (context.performed && canDash)
         {
-           
             StartCoroutine(DashCoroutine());
         }
     }
@@ -65,39 +66,27 @@ public class Movement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        
 
-        // _trailRenderer.emitting = true;
-        float dashDirection = isFacingRight ? 1f : -1f;
+         _trailRenderer.emitting = true;
+        dashDirection = !isFacingRight ? -1f : 1f;
+
+        Debug.Log("Works");
 
         Vector2 dash = _rb.position;
 
-        dash += new Vector2((dashSpeed * 0.1f), _rb.linearVelocity.y);
+        dash += _moveAmount * dashSpeed;
 
         _rb.MovePosition(dash);  // Dash Movement
-        Debug.Log("Works");
-
-        //for (int i = 0; i < 100; i++)
-        //{
-        //    Vector2 pos = _rb.position;
-
-        //    pos += new Vector2(0.1f, 0.0f);
-
-        //    _rb.MovePosition(pos);
-
-        //    yield return null;
-
-        //}
 
         yield return new WaitForSeconds(dashDuration);
 
-        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.y);
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.y); // Resets the velocity
 
         isDashing = false;
-       // _trailRenderer.emitting = false;
+         _trailRenderer.emitting = false;
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
-        
+
     }
 }
