@@ -319,6 +319,10 @@ PrefabInstance:
       propertyPath: dashDuration
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8295995460797516433, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: movementSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8452086565832684617, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
       value: 1
