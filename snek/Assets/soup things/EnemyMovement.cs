@@ -1,40 +1,64 @@
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public float distance;
     public RaycastHit2D ray;
     public Transform targ;
     public Transform self;
     public Vector2 targdirection;
+    public bool seePlayer; 
     [SerializeField] Transform target;
     NavMeshAgent agent;
     private void Start()
     {
+        distance = Vector2.Distance(transform.position, targ.position);
         targdirection = self.position - targ.position;
         ray = Physics2D.Raycast(transform.position, targdirection);
-        StartCoroutine(Check());
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        StartCoroutine(Run());
     }
     void Update()
     {
-        agent.SetDestination(target.position);
+
         targdirection = self.position - targ.position;
-        ray = Physics2D.Raycast(transform.position, targdirection);
-        if (ray)
+        ray = Physics2D.Raycast(transform.position, targ.position);
+        Debug.Log(ray.collider);
+        if (ray == null)
         {
-            float distance = Mathf.Abs(ray.point.y - transform.position.y);
-            Debug.Log("aslhasdfkhasdfahslkdfhalskdjfhalskjdfhalskdjf");
+            seePlayer = true;
+        } else
+        {
+            seePlayer = false;
         }
+            distance = Vector2.Distance(transform.position, targ.position);
     }
 
-    IEnumerator Check()
+    IEnumerator Run()
     {
-       
-        yield return new WaitForSeconds(0.1f);
+        while (distance >= 2.5f) { 
+            
+            yield return new WaitForSeconds(0.1f);
+        }
+        StartCoroutine(runthesecond());
+        StopCoroutine(Run());
+    }
+
+    IEnumerator runthesecond()
+    {
+        while (enabled == true)
+        {
+            agent.SetDestination(target.position);
+            yield return null;
+        }
     }
 }
+
+
 
