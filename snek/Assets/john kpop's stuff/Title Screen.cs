@@ -8,6 +8,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         SceneManager.LoadScene("Faith");
     }
 
+    public void OnCreditsButton ()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void OnQuitButton ()
     {
         Application.Quit();
