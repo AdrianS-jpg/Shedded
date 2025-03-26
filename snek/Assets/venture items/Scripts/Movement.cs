@@ -47,6 +47,8 @@ public class Movement : MonoBehaviour
         {
             return;
         }
+
+      
     }
 
     public void HandleMovement(InputAction.CallbackContext context)
@@ -64,13 +66,12 @@ public class Movement : MonoBehaviour
 
     private IEnumerator DashCoroutine()
     {
+        Physics2D.IgnoreLayerCollision(3, 8, true);
         canDash = false;
         isDashing = true;
 
          _trailRenderer.emitting = true;
         dashDirection = !isFacingRight ? -1f : 1f;
-
-        Debug.Log("Works");
 
         Vector2 dash = _rb.position;
 
@@ -84,9 +85,11 @@ public class Movement : MonoBehaviour
 
         isDashing = false;
          _trailRenderer.emitting = false;
+        Physics2D.IgnoreLayerCollision(3, 8, false); 
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
 
+       
     }
 }
