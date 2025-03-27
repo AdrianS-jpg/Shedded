@@ -13,6 +13,6 @@ public class AttackArea : MonoBehaviour
             PlayerHealth health = collider.GetComponent<PlayerHealth>();
 
             health.Damage(damage);
-        }    
-    }
+        } 
+    } 
 }
