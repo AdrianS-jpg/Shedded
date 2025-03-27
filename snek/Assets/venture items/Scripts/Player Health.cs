@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int health = 100;
+    [SerializeField] public int health = 100;
     void Update()
     {
-        if (health > 0)
+        if (health < 0)
         {
-           // Die();
+           Die();
         }
     }
 
@@ -18,13 +18,13 @@ public class PlayerHealth : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative damage");
         }
 
-        this.health += amount;
+        this.health -= amount;
     }
 
-    //private void Die()
-    //{
-    //    Debug.Log("You Died!");
-    //    Destroy(gameObject);
-    //}
+    private void Die()
+    {
+        Debug.Log("You Died!");
+        Destroy(gameObject);
+    }
 }
 

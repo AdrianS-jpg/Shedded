@@ -7,8 +7,9 @@ public class PlayerAttack : MonoBehaviour
 
     private bool attacking = false;
 
-    private float timmeToAttack = 0.25f;
+    private float timeToAttack = 0.25f;
     private float timer = 0f;
+    private bool canAttack = true; 
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject;
@@ -21,27 +22,29 @@ public class PlayerAttack : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer > timmeToAttack)
+            if (timer > timeToAttack)
             {
                 timer = 0f;
-                attacking = false;  
-                attackArea.SetActive(attacking);
-     
+                canAttack = true;
+                attacking = false;
+                attackArea.SetActive(false);
             }
-
-
         }
-    }
-
-    public void Attack(InputAction.CallbackContext context)
-    {
-        Attack();
-
     }
 
     private void Attack()
     {
-        attacking = true;
-        attackArea.SetActive(!attacking);  
+        attacking = true; canAttack = false; 
+        attackArea.SetActive(true );  
+
+    }
+
+    public void HandleAttack(InputAction.CallbackContext context)
+    {
+
+        if (context.performed && canAttack)
+        {
+            Attack();
+        }
     }
 }
