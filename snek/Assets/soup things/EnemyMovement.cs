@@ -12,10 +12,16 @@ public class EnemyMovement : MonoBehaviour
     public Transform self;
     public Vector2 targdirection;
     public bool seePlayer; 
-    [SerializeField] Transform target;
+    RaycastHit2D[] hit;
     NavMeshAgent agent;
+    public CircleCollider2D hitbox;
+    public BoxCollider2D hurtbox;
+    public boxeslol boxeslol;
+    public int health = 50;
     private void Start()
     {
+        hurtbox.enabled = false;
+        hitbox.enabled = false;
         distance = Vector2.Distance(transform.position, targ.position);
         targdirection = self.position - targ.position;
         ray = Physics2D.Raycast(transform.position, targdirection);
@@ -28,21 +34,28 @@ public class EnemyMovement : MonoBehaviour
     {
 
         targdirection = self.position - targ.position;
-        ray = Physics2D.Raycast(transform.position, targ.position);
-        Debug.Log(ray.collider);
-        if (ray == null)
+        ray = Physics2D.Raycast(transform.position, - targdirection);
+        Debug.DrawRay(transform.position, - targdirection);
+        Debug.Log(ray.collider.gameObject.name);
+        if (ray.collider.gameObject.name == "target")
         {
             seePlayer = true;
         } else
         {
             seePlayer = false;
         }
-            distance = Vector2.Distance(transform.position, targ.position);
+            Debug.Log(seePlayer);
+        distance = Vector2.Distance(transform.position, targ.position);
+        if (hitbox.IsTouching(GameObject.Find("target").GetComponent<targetcolliderscript>().hurtbox) == true)
+        {
+            Debug.Log("asasdfasasdfasdfsadfsaddf");
+            health = health - 3;
+        }
     }
 
     IEnumerator Run()
     {
-        while (distance >= 2.5f) { 
+        while (distance >= 2.5f && seePlayer != true) { 
             
             yield return new WaitForSeconds(0.1f);
         }
@@ -52,12 +65,39 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator runthesecond()
     {
-        while (enabled == true)
+        while (distance >= 1f)
         {
-            agent.SetDestination(target.position);
-            yield return null;
+            agent.SetDestination(targ.position);
+            yield return new WaitForSeconds(0.2f);
+            Debug.Log("aaaaaaa");
         }
+        agent.SetDestination(gameObject.transform.position);
+        StartCoroutine(attack());
+        StopCoroutine(runthesecond());
     }
+
+    IEnumerator attack()
+    {
+        yield return new WaitForSeconds(0.5f);
+        
+        hitbox.enabled = true;
+        GetComponent<SpriteRenderer>().color = Color.yellow;
+
+        yield return new WaitForSeconds(0.5f);
+
+        hitbox.enabled = false;
+        GetComponent<SpriteRenderer>().color = Color.white;
+
+        StartCoroutine(runthesecond());
+        StopCoroutine(attack());
+    }
+    //new thing lol 
+    //coroutine? (no idea how to spell that)
+    //when close enough
+    //stop movement
+    //stop raycast for a bit
+    //do attack thing (launch forawrd and spawn hitbox)
+    //respawn everything else
 }
 
 
