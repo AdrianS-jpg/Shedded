@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
         distance = Vector2.Distance(transform.position, targ.position);
         if (attackCor == true)
         {
-            if (hitbox.IsTouching(GameObject.Find("target").GetComponent<targetcolliderscript>().hurtbox) == true)
+            if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
             {
                 Debug.Log("asasdfasasdfasdfsadfsaddf");
                 health = health - 3;
