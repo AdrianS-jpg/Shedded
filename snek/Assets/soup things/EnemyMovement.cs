@@ -1,3 +1,4 @@
+using System.Buffers;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -44,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
         {
             seePlayer = false;
         }
-            Debug.Log(seePlayer);
+        Debug.Log(seePlayer);
         distance = Vector2.Distance(transform.position, targ.position);
         if (attackCor == true)
         {
@@ -68,15 +69,40 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator runthesecond()
     {
-        while (distance >= 1f)
+        while (distance >= 1f && seePlayer == true)
         {
             agent.SetDestination(targ.position);
             yield return new WaitForSeconds(0.2f);
             Debug.Log("aaaaaaa");
+        } 
+        if (distance <= 1f)
+        {
+            agent.SetDestination(gameObject.transform.position);
+            StartCoroutine(attack());
+            StopCoroutine(runthesecond());
+        }
+        else if (seePlayer == false) {
+            StartCoroutine(meow());
+        }
+        else {
+            
+        }
+        
+    }
+
+    IEnumerator meow()
+    {
+        for (int i = 0; i < 10; i++) {
+            agent.SetDestination(targ.position);
+            yield return new WaitForSeconds(0.1f);
+            if (seePlayer == true) {
+                StartCoroutine(runthesecond());
+                yield break;
+            }
         }
         agent.SetDestination(gameObject.transform.position);
-        StartCoroutine(attack());
-        StopCoroutine(runthesecond());
+        StartCoroutine(Run());
+        yield break;
     }
 
     IEnumerator attack()
@@ -103,6 +129,8 @@ public class EnemyMovement : MonoBehaviour
     //stop raycast for a bit
     //do attack thing (launch forawrd and spawn hitbox)
     //respawn everything else
+
+    //man was dexton capping? (quite possibly)
 }
 
 
