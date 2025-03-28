@@ -1,6 +1,5 @@
 using System.Collections;
 using Unity.VisualScripting;
-using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -32,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
     }
     void Update()
     {
-
+        gameObject.transform.rotation = new Quaternion(0,0,0,0);
         targdirection = self.position - targ.position;
         ray = Physics2D.Raycast(transform.position, - targdirection);
         Debug.DrawRay(transform.position, - targdirection);
@@ -55,7 +54,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator Run()
     {
-        while (distance >= 2.5f && seePlayer != true) { 
+        while (distance >= 2.5f && seePlayer == false) { 
             
             yield return new WaitForSeconds(0.1f);
         }
