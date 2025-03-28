@@ -17,6 +17,7 @@ public class EnemyMovement : MonoBehaviour
     public BoxCollider2D hurtbox;
     public boxeslol boxeslol;
     public int health = 50;
+    public bool attackCor = false;
     private void Start()
     {
         hurtbox.enabled = false;
@@ -45,10 +46,13 @@ public class EnemyMovement : MonoBehaviour
         }
             Debug.Log(seePlayer);
         distance = Vector2.Distance(transform.position, targ.position);
-        if (hitbox.IsTouching(GameObject.Find("target").GetComponent<targetcolliderscript>().hurtbox) == true)
+        if (attackCor == true)
         {
-            Debug.Log("asasdfasasdfasdfsadfsaddf");
-            health = health - 3;
+            if (hitbox.IsTouching(GameObject.Find("target").GetComponent<targetcolliderscript>().hurtbox) == true)
+            {
+                Debug.Log("asasdfasasdfasdfsadfsaddf");
+                health = health - 3;
+            }
         }
     }
 
@@ -80,10 +84,12 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         
         hitbox.enabled = true;
+        attackCor = true;
         GetComponent<SpriteRenderer>().color = Color.yellow;
 
         yield return new WaitForSeconds(0.5f);
 
+        attackCor = false;
         hitbox.enabled = false;
         GetComponent<SpriteRenderer>().color = Color.white;
 
