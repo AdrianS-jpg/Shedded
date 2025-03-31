@@ -38,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
         ray = Physics2D.Raycast(transform.position, - targdirection);
         Debug.DrawRay(transform.position, - targdirection);
         Debug.Log(ray.collider.gameObject.name);
-        if (ray.collider.gameObject.name == "target")
+        if (ray.collider.gameObject.layer == 8)
         {
             seePlayer = true;
         } else
