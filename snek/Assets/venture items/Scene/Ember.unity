@@ -37186,7 +37186,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.735849, g: 0.51023495, b: 0.51023495, a: 1}
   m_Origin: {x: -41, y: -35, z: 0}
   m_Size: {x: 95, y: 67, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -37489,7 +37489,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.5
   m_MaskInteraction: 0
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
   m_ApplyActiveColorSpace: 1
 --- !u!4 &511858798 stripped
 Transform:
@@ -37580,6 +37580,22 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2688958789037048345, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_Size.x
+      value: 2.944
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688958789037048345, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_Size.y
+      value: 2.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688958789037048345, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7763975953700780611, guid: 5a04ca1c9d2e2de4bb31fa0cbe894a33, type: 3}
+    - target: {fileID: 4298839435987477000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_LocalScale.x
       value: 19.38
@@ -37646,7 +37662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8295995460797516433, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: dashSpeed
-      value: 3
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 8295995460797516433, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: dashDuration
@@ -38318,7 +38334,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.25}
+    oldSize: {x: 0.97, y: 0.715}
     newSize: {x: 0.25, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -38370,8 +38386,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -27663765, guid: 18aa600806fd8ae46ae9a974def43290, type: 3}
-  m_Color: {r: 0.8396226, g: 0.16237983, b: 0.16237983, a: 1}
+  m_Sprite: {fileID: -5189646591617017191, guid: cef959e1b7081ef47a753627e5618058, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

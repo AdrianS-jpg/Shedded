@@ -1,24 +1,29 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] public int health = 100;
-    void Update()
+    [SerializeField] 
+    public int maxHealth = 100;
+    public int health;
+    public Slider slider;
+
+    void Start()
     {
-        if (health < 0)
-        {
-           Die();
-        }
+       health = maxHealth;
+        slider.maxValue = maxHealth;
+        slider.value = health;
     }
 
     public void Damage(int amount)
     {
-        if (amount < 0)
-        {
-            throw new System.ArgumentOutOfRangeException("Cannot have negative damage");
-        }
+        health -= amount; 
+        slider.value = health;
 
-        this.health -= amount;
+        if (health < 0)
+        {
+            Die();
+        }
     }
 
     private void Die()

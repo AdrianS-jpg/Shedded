@@ -75,17 +75,17 @@ public class Movement : MonoBehaviour
 
         Vector2 dash = _rb.position;
 
-        dash += _moveAmount * dashSpeed;
+       dash += _moveAmount * dashSpeed;
 
         _rb.MovePosition(dash);  // Dash Movement
-
+         
         yield return new WaitForSeconds(dashDuration);
 
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.y); // Resets the velocity
 
         isDashing = false;
          _trailRenderer.emitting = false;
-        Physics2D.IgnoreLayerCollision(3, 8, false); 
+        Physics2D.IgnoreLayerCollision(3, 8, false); // Allows the player to dash through without taking damage.
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
