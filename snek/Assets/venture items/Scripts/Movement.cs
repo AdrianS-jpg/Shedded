@@ -75,10 +75,10 @@ public class Movement : MonoBehaviour
 
         Vector2 dash = _rb.position;
 
-        dash += _moveAmount * dashSpeed;
+       dash += _moveAmount * dashSpeed;
 
         _rb.MovePosition(dash);  // Dash Movement
-
+         
         yield return new WaitForSeconds(dashDuration);
 
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.y); // Resets the velocity
