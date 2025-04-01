@@ -17,8 +17,10 @@ public class EnemyMovement : MonoBehaviour
     public CircleCollider2D hitbox;
     public BoxCollider2D hurtbox;
     public boxeslol boxeslol;
-    public int health = 50;
+    public int enemyHealth = 50;
+    public PlayerHealth pH;  
     public bool attackCor = false;
+    public bool enemyKilled = false;
     private void Start()
     {
         hurtbox.enabled = false;
@@ -38,6 +40,8 @@ public class EnemyMovement : MonoBehaviour
         ray = Physics2D.Raycast(transform.position, - targdirection);
         Debug.DrawRay(transform.position, - targdirection);
         Debug.Log(ray.collider.gameObject.name);
+
+       
         if (ray.collider.gameObject.layer == 8)
         {
             seePlayer = true;
@@ -52,8 +56,14 @@ public class EnemyMovement : MonoBehaviour
             if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
             {
                 Debug.Log("asasdfasasdfasdfsadfsaddf");
-                health = health - 3;
+                pH.health = pH.health - 5;
             }
+        }
+        if (enemyHealth == 0)
+        {
+            Destroy(gameObject);
+            Debug.Log("Dead");
+            enemyKilled = true; 
         }
     }
 
@@ -122,6 +132,8 @@ public class EnemyMovement : MonoBehaviour
         StartCoroutine(runthesecond());
         StopCoroutine(attack());
     }
+
+    
     //new thing lol 
     //coroutine? (no idea how to spell that)
     //when close enough

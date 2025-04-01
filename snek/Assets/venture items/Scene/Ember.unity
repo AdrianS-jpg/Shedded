@@ -37508,6 +37508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c00f8c2b101624b8508ee0f7e1d0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
 --- !u!58 &511858800
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -37595,6 +37596,26 @@ PrefabInstance:
     - target: {fileID: 4298839435987477000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4298839435987477000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4298839435987477000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2.944
+      objectReference: {fileID: 0}
+    - target: {fileID: 4298839435987477000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4298839435987477000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4298839435987477000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.54
       objectReference: {fileID: 0}
     - target: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_LocalScale.x
@@ -38231,8 +38252,10 @@ MonoBehaviour:
   hitbox: {fileID: 1691696218}
   hurtbox: {fileID: 1691696219}
   boxeslol: {fileID: 11400000, guid: 73ce2de9f3c1ea448920384aad422a41, type: 2}
-  health: 50
+  enemyHealth: 50
+  pH: {fileID: 0}
   attackCor: 0
+  enemyKilled: 0
 --- !u!50 &1691696217
 Rigidbody2D:
   serializedVersion: 5
