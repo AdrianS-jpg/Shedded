@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
     public CircleCollider2D hitbox;
     public BoxCollider2D hurtbox;
     public boxeslol boxeslol;
-    public int enemyHealth = 50;
+    public int enemyHealth = 3;
     public PlayerHealth pH;  
     public bool attackCor = false;
     public bool enemyKilled = false;
@@ -55,8 +55,8 @@ public class EnemyMovement : MonoBehaviour
         {
             if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
             {
-                Debug.Log("asasdfasasdfasdfsadfsaddf");
-                pH.health = pH.health - 5;
+                Debug.Log("hit");
+                pH.health = pH.health - 1;
             }
         }
         if (enemyHealth == 0)

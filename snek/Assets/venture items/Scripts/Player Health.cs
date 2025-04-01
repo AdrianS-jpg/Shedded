@@ -4,26 +4,31 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] 
-    public int maxHealth = 100;
+    public int maxHealth = 5;
     public int health;
     public Slider slider;
+    public EnemyMovement eM;
 
     void Start()
     {
-       health = maxHealth;
+        health = maxHealth;
         slider.maxValue = maxHealth;
         slider.value = health;
     }
 
-    public void Damage(int amount)
+    void Update()
     {
-        health -= amount; 
         slider.value = health;
 
-        if (health < 0)
+        if (health <= 0)
         {
             Die();
         }
+
+    }
+    public void Damage()
+    {
+        eM.enemyHealth -= 1; 
     }
 
     private void Die()
