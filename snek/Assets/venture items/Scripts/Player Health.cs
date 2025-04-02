@@ -6,19 +6,19 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] 
     public int maxHealth = 5;
     public int health;
-    public Slider slider;
+   // public Slider slider;
     public EnemyMovement eM;
 
     void Start()
     {
         health = maxHealth;
-        slider.maxValue = maxHealth;
-        slider.value = health;
+       // slider.maxValue = maxHealth;
+       // slider.value = health;
     }
 
     void Update()
     {
-        slider.value = health;
+        //slider.value = health;
 
         if (health <= 0)
         {
@@ -28,7 +28,8 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Damage()
     {
-        eM.enemyHealth -= 1; 
+        eM.enemyHealth -= 1;
+        Debug.Log("Minus 1 enemy hp");
     }
 
     private void Die()

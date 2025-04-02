@@ -83,7 +83,7 @@ public class EnemyMovement : MonoBehaviour
         {
             agent.SetDestination(targ.position);
             yield return new WaitForSeconds(0.2f);
-            Debug.Log("aaaaaaa");
+           // Debug.Log("aaaaaaa");
         } 
         if (distance <= 1f)
         {

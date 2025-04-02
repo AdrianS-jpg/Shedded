@@ -14,7 +14,8 @@ public class PlayerAttack : MonoBehaviour
     public Camera mainCam;
     private float timeToAttack = 0.25f;
     private float timer = 0f;
-    private bool canAttack = true; 
+    private bool canAttack = true;
+    public EnemyMovement eM;
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject;
@@ -30,6 +31,8 @@ public class PlayerAttack : MonoBehaviour
         attacking = true;
         canAttack = false;
         attackArea.SetActive(true);
+        Damage();
+
 
         yield return new WaitForSeconds(timeToAttack);
 
@@ -49,7 +52,11 @@ public class PlayerAttack : MonoBehaviour
             StartCoroutine(AttackBetter());
         }
     }
-
+    public void Damage()
+    {
+        eM.enemyHealth -= 1;
+        Debug.Log("Minus 1 enemy hp");
+    }
     public void HandleLook(InputAction.CallbackContext context)
     {
         //Debug.Log(Mouse.current.position.ReadValue());

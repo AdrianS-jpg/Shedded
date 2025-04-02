@@ -13,7 +13,10 @@ public class MaskToggle : MonoBehaviour
     public bool isHiding;
     public bool canHide;
 
-
+    void Awake()
+    {
+        hideDuration = 5f;
+    }
     void Start()
     {
         isHiding = false;
@@ -40,16 +43,18 @@ public class MaskToggle : MonoBehaviour
         if (context.performed)
         {
             StartCoroutine(Mask());
+            Debug.Log("Pressed E");
         }
     }
 
    private IEnumerator Mask()
     {
-        if (hideDuration != 0)
+        if (hideDuration <= 5 && hideDuration != 0)
         {
             eM.seePlayer = false;
             isHiding = true;
-           
+            canHide = false;
+            Debug.Log("Hiding");
         }
 
         yield return new WaitForSeconds(hideDuration);
@@ -58,6 +63,7 @@ public class MaskToggle : MonoBehaviour
         eM.seePlayer = true;
         isHiding = false;
         canHide = false;
+        Debug.Log("Stop hiding");
 
         yield return null;
     }
