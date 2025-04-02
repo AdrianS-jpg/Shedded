@@ -5,7 +5,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     public void OnStartButton ()
     {
-        SceneManager.LoadScene("Faith");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void OnCreditsButton ()

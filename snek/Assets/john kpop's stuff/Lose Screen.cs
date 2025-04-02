@@ -6,7 +6,7 @@ public class LoseScreen : MonoBehaviour
 
     public void OnRetryButton()
     {
-        SceneManager.LoadScene("Faith");
+        SceneManager.LoadScene("Level 1");
     }
     public void OnMenuButton ()
     {
