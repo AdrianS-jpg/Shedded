@@ -69,10 +69,10 @@ public class PlayerAttack : MonoBehaviour
         //Vector2 point3 = new Vector2(attackArea.GetComponent<PolygonCollider2D>().points[2].x * Mathf.Cos(rad) - attackArea.GetComponent<PolygonCollider2D>().points[2].y * Mathf.Sin(rad), attackArea.GetComponent<PolygonCollider2D>().points[2].x * Mathf.Sin(rad) + attackArea.GetComponent<PolygonCollider2D>().points[2].y * Mathf.Cos(rad));
         //attackArea.GetComponent<PolygonCollider2D>().points = new[] {point1, point2, point3};
 
-        Debug.Log(Mouse.current.position.ReadValue());
-        Debug.Log(mainCam.WorldToScreenPoint(gameObject.transform.position));
+        //Debug.Log(Mouse.current.position.ReadValue());
+        //Debug.Log(mainCam.WorldToScreenPoint(gameObject.transform.position));
         var rad = ((Mathf.Atan2(mainCam.WorldToScreenPoint(gameObject.transform.position).y - Mouse.current.position.ReadValue().y, (mainCam.WorldToScreenPoint(gameObject.transform.position).x - Mouse.current.position.ReadValue().x)) * Mathf.Rad2Deg));
-        Debug.Log(rad);
+        //Debug.Log(rad);
         attackArea.transform.rotation = Quaternion.Euler(0,0,rad);
     }
 }

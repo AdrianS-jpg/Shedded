@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour
         } else {
             seePlayer = true;
         }
-        Debug.Log(seePlayer);
+       // Debug.Log(seePlayer);
         distance = Vector2.Distance(transform.position, targ.position);
         if (attackCor == true)
         {

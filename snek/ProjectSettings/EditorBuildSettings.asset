@@ -5,31 +5,31 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/john kpop's stuff/Title Screen.unity
     guid: 9b991be07b5c78844a153850654294b8
-  - enabled: 1
+  - enabled: 0
     path: Assets/john kpop's stuff/Faith.unity
     guid: f0f3baa9c67ca7f44a2ce8e5b3ea6fdf
-  - enabled: 1
+  - enabled: 0
     path: Assets/soup things/adrian.unity
     guid: 306fa9f47963de24ba1af8af02fa0e11
   - enabled: 1
     path: Assets/venture items/Scene/Ember.unity
     guid: ca197326cb349f9429389f7d8be2a1df
-  - enabled: 1
+  - enabled: 0
     path: Assets/soup things/Main Menu.unity
     guid: a2271a5c24e0d99499d657bf661b64b6
-  - enabled: 1
+  - enabled: 0
     path: Assets/john kpop's stuff/Credits.unity
     guid: 05247f27e2e7d9a49aa8224159fedb41
-  - enabled: 1
+  - enabled: 0
     path: Assets/john kpop's stuff/Win screen.unity
     guid: fa74928dd7205fb4cadda61f2f16f9b6
-  - enabled: 1
+  - enabled: 0
     path: Assets/john kpop's stuff/Lose screen.unity
     guid: 7719ecea9c7cbf64095501722090d580
-  - enabled: 1
+  - enabled: 0
     path: Assets/john kpop's stuff/Level 1.unity
     guid: b1e2e38c93aff5a4a86018e6532daee2
   m_configObjects:

@@ -37418,13 +37418,25 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 316322937925345818, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_Radius
+      value: 2.9502509
+      objectReference: {fileID: 0}
+    - target: {fileID: 316322937925345818, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 316322937925345818, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 354384710176672736, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: eM
       value: 
       objectReference: {fileID: 1691696216}
     - target: {fileID: 354384710176672736, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: maxHealth
-      value: 10000
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2576983796665016664, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: hitbox
@@ -38144,10 +38156,13 @@ MonoBehaviour:
   hitbox: {fileID: 1691696218}
   hurtbox: {fileID: 1691696219}
   boxeslol: {fileID: 11400000, guid: 73ce2de9f3c1ea448920384aad422a41, type: 2}
-  enemyHealth: 50
+  enemyHealth: 25
   pH: {fileID: 511858808}
   attackCor: 0
   enemyKilled: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &1691696217
 Rigidbody2D:
   serializedVersion: 5

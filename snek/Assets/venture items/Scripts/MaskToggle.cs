@@ -16,6 +16,7 @@ public class MaskToggle : MonoBehaviour
     void Awake()
     {
         hideDuration = 5f;
+     
     }
     void Start()
     {
@@ -49,20 +50,25 @@ public class MaskToggle : MonoBehaviour
 
    private IEnumerator Mask()
     {
+        int LayerIgnoreRaycast = LayerMask.GetMask("Player");
+        int LayerRaycast = LayerMask.GetMask("target");
+
         if (hideDuration <= 5 && hideDuration != 0)
         {
             eM.seePlayer = false;
             isHiding = true;
             canHide = false;
-            Debug.Log("Hiding");
+            gameObject.layer = LayerIgnoreRaycast;
+            Debug.Log(gameObject.layer);
         }
 
         yield return new WaitForSeconds(hideDuration);
 
         hideDuration = 0; 
-        eM.seePlayer = true;
+        eM.seePlayer = true; 
         isHiding = false;
         canHide = false;
+        gameObject.layer = LayerRaycast;
         Debug.Log("Stop hiding");
 
         yield return null;
