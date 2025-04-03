@@ -73,8 +73,6 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log(mainCam.WorldToScreenPoint(gameObject.transform.position));
         var rad = ((Mathf.Atan2(mainCam.WorldToScreenPoint(gameObject.transform.position).y - Mouse.current.position.ReadValue().y, (mainCam.WorldToScreenPoint(gameObject.transform.position).x - Mouse.current.position.ReadValue().x)) * Mathf.Rad2Deg));
         Debug.Log(rad);
-        
-            Debug.Log(rad);
         attackArea.transform.rotation = Quaternion.Euler(0,0,rad);
     }
 }

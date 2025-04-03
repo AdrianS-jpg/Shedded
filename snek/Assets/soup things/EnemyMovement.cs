@@ -41,12 +41,16 @@ public class EnemyMovement : MonoBehaviour
         ray = Physics2D.Raycast(transform.position, -targdirection, distance, ~layer);
         Debug.DrawRay(transform.position, - targdirection);
         Debug.Log(ray.collider.gameObject.name);
-        if (ray.collider.gameObject.layer == 8)
-        {
+        if (attackCor == false){
+            if (ray.collider.gameObject.layer == 8)
+            {
+                seePlayer = true;
+            } else
+            {
+                seePlayer = false;
+            }
+        } else {
             seePlayer = true;
-        } else
-        {
-            seePlayer = false;
         }
         Debug.Log(seePlayer);
         distance = Vector2.Distance(transform.position, targ.position);
