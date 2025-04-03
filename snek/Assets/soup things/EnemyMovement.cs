@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
     public PlayerHealth pH;  
     public bool attackCor = false;
     public bool enemyKilled = false;
+    public LayerMask layer;
     private void Start()
     {
         hurtbox.enabled = false;
@@ -37,11 +38,9 @@ public class EnemyMovement : MonoBehaviour
     {
         gameObject.transform.rotation = new Quaternion(0,0,0,0);
         targdirection = self.position - targ.position;
-        ray = Physics2D.Raycast(transform.position, - targdirection);
+        ray = Physics2D.Raycast(transform.position, -targdirection, distance, ~layer);
         Debug.DrawRay(transform.position, - targdirection);
         Debug.Log(ray.collider.gameObject.name);
-
-       
         if (ray.collider.gameObject.layer == 8)
         {
             seePlayer = true;
