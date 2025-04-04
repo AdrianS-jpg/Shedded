@@ -8,14 +8,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private GameObject attackArea = default;
-
+    [Header("Bools")]
     private bool attacking = false;
-    public Camera mainCam;
+    private bool canAttack = true;
+
+    [Header("Numbers")]
     private float timeToAttack = 0.25f;
     private float timer = 0f;
-    private bool canAttack = true;
+
+    [Header("Components")]
+    private GameObject attackArea = default;
+    public Camera mainCam;
     public EnemyMovement eM;
+
+   
+   
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject;
@@ -73,6 +80,6 @@ public class PlayerAttack : MonoBehaviour
         //Debug.Log(mainCam.WorldToScreenPoint(gameObject.transform.position));
         var rad = ((Mathf.Atan2(mainCam.WorldToScreenPoint(gameObject.transform.position).y - Mouse.current.position.ReadValue().y, (mainCam.WorldToScreenPoint(gameObject.transform.position).x - Mouse.current.position.ReadValue().x)) * Mathf.Rad2Deg));
         //Debug.Log(rad);
-        attackArea.transform.rotation = Quaternion.Euler(0,0,rad);
+        attackArea.transform.rotation = Quaternion.Euler(1,1,rad);
     }
 }

@@ -37438,6 +37438,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 1565453286692963143, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_PreviewTimeScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2576983796665016664, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: hitbox
       value: 
@@ -38073,9 +38077,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2, y: 1.5}
+    - - {x: 3, y: 2}
       - {x: 0, y: 0}
-      - {x: 2, y: -1.5}
+      - {x: 3, y: -2}
   m_UseDelaunayMesh: 0
 --- !u!1 &1691696213
 GameObject:
@@ -38148,18 +38152,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb4d1fcccbf13244b61e04f07649614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 0
   targ: {fileID: 511858798}
   self: {fileID: 1691696214}
   targdirection: {x: 0, y: 0}
-  seePlayer: 0
   hitbox: {fileID: 1691696218}
   hurtbox: {fileID: 1691696219}
   boxeslol: {fileID: 11400000, guid: 73ce2de9f3c1ea448920384aad422a41, type: 2}
-  enemyHealth: 25
-  pH: {fileID: 511858808}
   attackCor: 0
   enemyKilled: 0
+  seePlayer: 0
+  distance: 0
+  enemyHealth: 25
+  pH: {fileID: 511858808}
   layer:
     serializedVersion: 2
     m_Bits: 256
