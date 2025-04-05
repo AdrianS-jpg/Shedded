@@ -58,7 +58,7 @@ public class MaskToggle : MonoBehaviour
             eM.seePlayer = false;
             isHiding = true;
             canHide = false;
-            gameObject.layer = LayerIgnoreRaycast;
+            gameObject.layer = LayerMask.NameToLayer("Player");
             Debug.Log(gameObject.layer);
         }
 
@@ -68,7 +68,7 @@ public class MaskToggle : MonoBehaviour
         eM.seePlayer = true; 
         isHiding = false;
         canHide = false;
-        gameObject.layer = LayerRaycast;
+        gameObject.layer = LayerMask.NameToLayer("target");;
         Debug.Log("Stop hiding");
 
         yield return null;

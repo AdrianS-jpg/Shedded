@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pinkish circilar building_0: -6092448555471887820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
