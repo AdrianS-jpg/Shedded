@@ -10,18 +10,19 @@ public class MaskToggle : MonoBehaviour
     [Header("Variables")]
     public float hideDuration = 5f;
 
-    public bool isHiding;
+    static public bool isHiding;
     public bool canHide;
 
     void Awake()
     {
-        hideDuration = 5f;
+        isHiding = false;
+        canHide = true;
+        hideDuration = 4f;
      
     }
     void Start()
     {
-        isHiding = false;
-        canHide = true;
+        
 
         float clamped = Mathf.Clamp(hideDuration, 0, 5); //might be unneeded bc i set the float to specific variables but its here
          
@@ -53,22 +54,21 @@ public class MaskToggle : MonoBehaviour
         int LayerIgnoreRaycast = LayerMask.NameToLayer("Player");
         int LayerRaycast = LayerMask.NameToLayer("target");;
 
-        if (hideDuration <= 5 && hideDuration != 0)
-        {
+       
             eM.seePlayer = false;
             isHiding = true;
             canHide = false;
-            gameObject.layer = LayerIgnoreRaycast;
-            Debug.Log(gameObject.layer);
-        }
+            gameObject.layer = 3;
+            Debug.Log("kas");
+        
 
         yield return new WaitForSeconds(hideDuration);
 
         hideDuration = 0; 
         eM.seePlayer = true; 
         isHiding = false;
-        canHide = false;
-        gameObject.layer = LayerRaycast;
+        canHide = true;
+        gameObject.layer = 8;
         Debug.Log("Stop hiding");
 
         yield return null;

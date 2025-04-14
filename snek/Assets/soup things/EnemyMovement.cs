@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        hurtbox.enabled = false;
+        hurtbox.enabled = true;
         hitbox.enabled = false;
 
         distance = Vector2.Distance(transform.position, targ.position);
@@ -50,32 +50,37 @@ public class EnemyMovement : MonoBehaviour
     }
     void Update()
     {
+        
         gameObject.transform.rotation = new Quaternion(0,0,0,0);
         targdirection = self.position - targ.position;
         ray = Physics2D.Raycast(transform.position, -targdirection, distance, ~layer);
         
 
         Debug.DrawRay(transform.position, - targdirection);
-        // Debug.Log(ray.collider.gameObject.name);
-
-        if (attackCor == false)
+        Debug.Log(ray.collider.gameObject.name);
+        if (MaskToggle.isHiding == false)
         {
-            if (ray.collider.gameObject.layer == 8)
+            if (attackCor == false)
             {
-                seePlayer = true;
+                if (ray.collider.gameObject.layer == 8)
+                {
+                    seePlayer = true;
+                }
+                else
+                {
+                    seePlayer = false;
+                }
             }
             else
             {
-                seePlayer = false;
+                seePlayer = true;
             }
-        }
-        else
+            Debug.Log(seePlayer);
+        } else
         {
-            seePlayer = true;
+            seePlayer = false ;
         }
-        Debug.Log(seePlayer);
-
-        distance = Vector2.Distance(transform.position, targ.position);
+            distance = Vector2.Distance(transform.position, targ.position);
 
         if (attackCor == true)
         {
@@ -92,11 +97,13 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("Dead");
             enemyKilled = true; 
         }
+        
+
     }
 
     IEnumerator Run()
     {
-        while (distance >= 2.5f && seePlayer == false) { 
+        while (seePlayer == false) { 
             
             yield return new WaitForSeconds(0.1f);
         }
@@ -104,27 +111,31 @@ public class EnemyMovement : MonoBehaviour
         StopCoroutine(Run());
     }
 
+    IEnumerator wait()
+    {
+
+        yield break;
+    }
+
     IEnumerator runthesecond()
     {
-        while (distance >= 1f && seePlayer == true)
-        {
-            agent.SetDestination(targ.position);
-            yield return new WaitForSeconds(0.2f);
-           // Debug.Log("aaaaaaa");
-        } 
-        if (distance <= 1f)
-        {
-            agent.SetDestination(gameObject.transform.position);
-            StartCoroutine(attack());
-            StopCoroutine(runthesecond());
-        }
-        else if (seePlayer == false) {
-            StartCoroutine(meow());
-        }
-        else {
-            
-        }
-        
+            while (distance >= 1f && seePlayer == true)
+            {
+                agent.SetDestination(targ.position);
+                yield return new WaitForSeconds(0.2f);
+                // Debug.Log("aaaaaaa");
+            }
+            if (distance <= 1f && seePlayer == true)
+            {
+                agent.SetDestination(gameObject.transform.position);
+                StartCoroutine(attack());
+                StopCoroutine(runthesecond());
+            }
+            else if (seePlayer == false)
+            {
+                StartCoroutine(meow());
+            }
+
     }
 
     IEnumerator meow()
@@ -135,6 +146,11 @@ public class EnemyMovement : MonoBehaviour
 
             if (seePlayer == true) {
                 StartCoroutine(runthesecond());
+                yield break;
+            }
+            if (MaskToggle.isHiding == true)
+            {
+                StartCoroutine(Run());
                 yield break;
             }
         }

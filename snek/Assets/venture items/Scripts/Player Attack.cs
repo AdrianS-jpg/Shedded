@@ -79,20 +79,27 @@ public class PlayerAttack : MonoBehaviour
         //Vector2 point3 = new Vector2(attackArea.GetComponent<PolygonCollider2D>().points[2].x * Mathf.Cos(rad) - attackArea.GetComponent<PolygonCollider2D>().points[2].y * Mathf.Sin(rad), attackArea.GetComponent<PolygonCollider2D>().points[2].x * Mathf.Sin(rad) + attackArea.GetComponent<PolygonCollider2D>().points[2].y * Mathf.Cos(rad));
         //attackArea.GetComponent<PolygonCollider2D>().points = new[] {point1, point2, point3};
 
-        //Debug.Log(Mouse.current.position.ReadValue());
-        //Debug.Log(mainCam.WorldToScreenPoint(gameObject.transform.position));
-        //var rad = ((Mathf.Atan2(mainCam.WorldToScreenPoint(gameObject.transform.position).y - Mouse.current.position.ReadValue().y, (mainCam.WorldToScreenPoint(gameObject.transform.position).x - Mouse.current.position.ReadValue().x)) * Mathf.Rad2Deg));
-        //Debug.Log(rad);
-        //attackArea.transform.rotation = Quaternion.Euler(1,1,rad);
+        Debug.Log(Mouse.current.position.ReadValue());
+        Debug.Log(mainCam.WorldToScreenPoint(gameObject.transform.position));
+        var rad = ((Mathf.Atan2(mainCam.WorldToScreenPoint(gameObject.transform.position).y - Mouse.current.position.ReadValue().y, (mainCam.WorldToScreenPoint(gameObject.transform.position).x - Mouse.current.position.ReadValue().x)) * Mathf.Rad2Deg));
+        Debug.Log(rad);
+        if (rad < 0)
+        {
+            rad = 180 + rad;
+        } else
+        {
+            rad = rad - 180;
+        }
+            attackArea.transform.rotation = Quaternion.Euler(1, 1, rad);
 
         //third times the charm??
 
-        float moveHorizontal = Input.GetAxisRaw ("Horizontal");
-        float moveVertical = Input.GetAxisRaw ("Vertical");
+        //float moveHorizontal = Input.GetAxisRaw ("Horizontal");
+        //float moveVertical = Input.GetAxisRaw ("Vertical");
 
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        attackArea.transform.rotation = Quaternion.Euler(movement);
+        //Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        //attackArea.transform.rotation = Quaternion.Euler(movement);
 
-        attackArea.transform.Translate(movement, Space.World);
+        //attackArea.transform.Translate(movement, Space.World);
     }
 }
