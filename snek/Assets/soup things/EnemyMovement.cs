@@ -80,7 +80,7 @@ public class EnemyMovement : MonoBehaviour
         {
             seePlayer = false ;
         }
-            distance = Vector2.Distance(transform.position, targ.position);
+        distance = Vector2.Distance(transform.position, targ.position);
 
         if (attackCor == true)
         {
@@ -103,6 +103,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator Run()
     {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         while (seePlayer == false) { 
             
             yield return new WaitForSeconds(0.1f);
@@ -119,7 +120,8 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator runthesecond()
     {
-            while (distance >= 1f && seePlayer == true)
+        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        while (distance >= 1f && seePlayer == true)
             {
                 agent.SetDestination(targ.position);
                 yield return new WaitForSeconds(0.2f);
@@ -140,6 +142,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator meow()
     {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         for (int i = 0; i < 10; i++) {
             agent.SetDestination(targ.position);
             yield return new WaitForSeconds(0.1f);
@@ -162,14 +165,20 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator attack()
     {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         yield return new WaitForSeconds(0.5f);
         
         hitbox.enabled = true;
         attackCor = true;
         GetComponent<SpriteRenderer>().color = Color.yellow;
 
-        yield return new WaitForSeconds(.25f); 
-        pH.health = pH.health - 1;
+        yield return new WaitForSeconds(.25f);
+
+        if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
+        {
+            pH.health = pH.health - 1;
+
+        }
 
         yield return new WaitForSeconds(0.5f);
 

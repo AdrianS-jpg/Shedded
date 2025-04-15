@@ -93,6 +93,10 @@ public class PlayerAttack : MonoBehaviour
             attackArea.transform.rotation = Quaternion.Euler(1, 1, rad);
 
         //third times the charm??
+        //lies
+        //misinformation
+        //im being gaslight chat
+
 
         //float moveHorizontal = Input.GetAxisRaw ("Horizontal");
         //float moveVertical = Input.GetAxisRaw ("Vertical");
