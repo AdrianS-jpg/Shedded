@@ -31,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
     public float distance;
     public int enemyHealth = 3;
     public PlayerHealth pH;
-    public int walkRadius = 1000;
+    public int walkRadius = 10;
     public Vector3 finalPosition;
     public Vector3 finalPosition3;
 
@@ -55,13 +55,20 @@ public class EnemyMovement : MonoBehaviour
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, walkRadius, 1);
         finalPosition = hit.position;
-
         Vector3 randomDirection3 = Random.insideUnitSphere * walkRadius;
         randomDirection3 += transform.position;
         NavMeshHit hit3;
         NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, 1);
         finalPosition3 = hit3.position;
-
+        Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
+        while (Vector2.Distance(finalPosition, finalPosition3) <= 3)
+        {
+            randomDirection3 = Random.insideUnitSphere * walkRadius;
+            randomDirection3 += transform.position;
+            NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, 1);
+            finalPosition3 = hit3.position;
+            Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
+        }
         Debug.Log(finalPosition);
         Debug.Log(finalPosition3);
         StartCoroutine(Run());
@@ -114,14 +121,18 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("Dead");
             enemyKilled = true; 
         }
-        Debug.Log(transform.position);
+        Debug.Log(transform.forward);
 
     }
 
     IEnumerator Run() //(a)
     {
+        agent.SetDestination(finalPosition3);
         GetComponent<NavMeshAgent>().autoBraking = true;
-        GetComponent<NavMeshAgent>().speed = 2f;
+        GetComponent<NavMeshAgent>().speed = 1f;
+        GetComponent<NavMeshAgent>().angularSpeed = 30f;
+        GetComponent<NavMeshAgent>(). acceleration = 3f;
+
 
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         while (seePlayer == false) { 
@@ -129,6 +140,8 @@ public class EnemyMovement : MonoBehaviour
             
             if ((transform.position.x + 0.5 >= finalPosition.x && transform.position.x - 0.5 <= finalPosition.x) && (transform.position.y + 0.5 >= finalPosition.y && transform.position.y - 0.5 <= finalPosition.y))
             {
+                //ignore this if statement guys please
+                //there was no other way to do it i promise you gotta trust 
                 agent.SetDestination(finalPosition3);
             } else if ((transform.position.x + 0.5 >= finalPosition3.x && transform.position.x - 0.5 <= finalPosition3.x) && (transform.position.y + 0.5 >= finalPosition3.y && transform.position.y - 0.5 <= finalPosition3.y))
             {
@@ -150,7 +163,9 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator runthesecond() //(a)
     {
         GetComponent<NavMeshAgent>().autoBraking = false;
-        GetComponent<NavMeshAgent>().speed = 5f;
+        GetComponent<NavMeshAgent>().speed = 7f;
+        GetComponent<NavMeshAgent>().angularSpeed = 120f;
+        GetComponent<NavMeshAgent>().acceleration = 8f;
 
         gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
         while (distance >= 1f && seePlayer == true)
