@@ -60,6 +60,7 @@ public class MaskToggle : MonoBehaviour
             canHide = false;
             gameObject.layer = 3;
             Debug.Log("kas");
+            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         
 
         yield return new WaitForSeconds(hideDuration);
