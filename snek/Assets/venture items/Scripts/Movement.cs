@@ -85,7 +85,7 @@ public class Movement : MonoBehaviour
 
         isDashing = false;
          _trailRenderer.emitting = false;
-        Physics2D.IgnoreLayerCollision(8, 0, false); // Allows the player to dash through without taking damage.
+        Physics2D.IgnoreLayerCollision(8, 3, false); // Allows the player to dash through without taking damage.
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
