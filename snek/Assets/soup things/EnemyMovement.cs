@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.Android;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -29,8 +30,11 @@ public class EnemyMovement : MonoBehaviour
     [Header("Numbers")]
     public float distance;
     public int enemyHealth = 3;
-    public PlayerHealth pH;  
-    
+    public PlayerHealth pH;
+    public int walkRadius = 1000;
+    public Vector3 finalPosition;
+    public Vector3 finalPosition3;
+
     public LayerMask layer;
 
     private void Start()
@@ -46,11 +50,24 @@ public class EnemyMovement : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
+        Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, walkRadius, 1);
+        finalPosition = hit.position;
+
+        Vector3 randomDirection3 = Random.insideUnitSphere * walkRadius;
+        randomDirection3 += transform.position;
+        NavMeshHit hit3;
+        NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, 1);
+        finalPosition3 = hit3.position;
+
+        Debug.Log(finalPosition);
+        Debug.Log(finalPosition3);
         StartCoroutine(Run());
     }
     void Update()
     {
-        
         gameObject.transform.rotation = new Quaternion(0,0,0,0);
         targdirection = self.position - targ.position;
         ray = Physics2D.Raycast(transform.position, -targdirection, distance, ~layer);
@@ -97,16 +114,28 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("Dead");
             enemyKilled = true; 
         }
-        
+        Debug.Log(transform.position);
 
     }
 
-    IEnumerator Run()
+    IEnumerator Run() //(a)
     {
+        GetComponent<NavMeshAgent>().autoBraking = true;
+        GetComponent<NavMeshAgent>().speed = 2f;
+
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         while (seePlayer == false) { 
             
-            yield return new WaitForSeconds(0.1f);
+            
+            if ((transform.position.x + 0.5 >= finalPosition.x && transform.position.x - 0.5 <= finalPosition.x) && (transform.position.y + 0.5 >= finalPosition.y && transform.position.y - 0.5 <= finalPosition.y))
+            {
+                agent.SetDestination(finalPosition3);
+            } else if ((transform.position.x + 0.5 >= finalPosition3.x && transform.position.x - 0.5 <= finalPosition3.x) && (transform.position.y + 0.5 >= finalPosition3.y && transform.position.y - 0.5 <= finalPosition3.y))
+            {
+                agent.SetDestination(finalPosition);
+            }
+                yield return new WaitForSeconds(0.1f);
+
         }
         StartCoroutine(runthesecond());
         StopCoroutine(Run());
@@ -118,14 +147,24 @@ public class EnemyMovement : MonoBehaviour
         yield break;
     }
 
-    IEnumerator runthesecond()
+    IEnumerator runthesecond() //(a)
     {
+        GetComponent<NavMeshAgent>().autoBraking = false;
+        GetComponent<NavMeshAgent>().speed = 5f;
+
         gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
         while (distance >= 1f && seePlayer == true)
             {
                 agent.SetDestination(targ.position);
                 yield return new WaitForSeconds(0.2f);
                 // Debug.Log("aaaaaaa");
+            if (targdirection.x >= 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            } else
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
             }
             if (distance <= 1f && seePlayer == true)
             {
@@ -145,6 +184,14 @@ public class EnemyMovement : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         for (int i = 0; i < 10; i++) {
             agent.SetDestination(targ.position);
+            if (targdirection.x >= 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
             yield return new WaitForSeconds(0.1f);
 
             if (seePlayer == true) {
@@ -166,6 +213,14 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator attack()
     {
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        if (targdirection.x >= 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
         yield return new WaitForSeconds(0.5f);
         
         hitbox.enabled = true;

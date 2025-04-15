@@ -29,11 +29,12 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject;
-        attackArea.SetActive(true);
+        attackArea.SetActive(false);
     }
 
     private void Update()
     {
+
     }
 
     IEnumerator AttackBetter()
@@ -82,7 +83,6 @@ public class PlayerAttack : MonoBehaviour
         //Debug.Log(Mouse.current.position.ReadValue());
         //Debug.Log(mainCam.WorldToScreenPoint(gameObject.transform.position));
         var rad = ((Mathf.Atan2(mainCam.WorldToScreenPoint(gameObject.transform.position).y - Mouse.current.position.ReadValue().y, (mainCam.WorldToScreenPoint(gameObject.transform.position).x - Mouse.current.position.ReadValue().x)) * Mathf.Rad2Deg));
-        Debug.Log(rad);
         if (rad < 0)
         {
             rad = 180 + rad;
@@ -93,6 +93,7 @@ public class PlayerAttack : MonoBehaviour
             attackArea.transform.rotation = Quaternion.Euler(1, 1, rad);
 
         //third times the charm??
+
         //lies
         //misinformation
         //im being gaslight chat
