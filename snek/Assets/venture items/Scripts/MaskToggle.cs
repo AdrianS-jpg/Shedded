@@ -11,7 +11,7 @@ public class MaskToggle : MonoBehaviour
     public float hideDuration = 5f;
 
     static public bool isHiding;
-    public bool canHide;
+    static public bool canHide;
 
     void Awake()
     {
@@ -68,7 +68,7 @@ public class MaskToggle : MonoBehaviour
         hideDuration = 0; 
         eM.seePlayer = true; 
         isHiding = false;
-        canHide = true;
+        canHide = false;
         gameObject.layer = 8;
         Debug.Log("Stop hiding");
 

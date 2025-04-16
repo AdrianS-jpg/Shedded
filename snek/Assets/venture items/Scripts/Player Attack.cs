@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Unity.Mathematics;
@@ -19,12 +20,14 @@ public class PlayerAttack : MonoBehaviour
     private float timer = 0f;
 
     [Header("Components")]
-    private GameObject attackArea = default;
+    static public GameObject attackArea = default;
     public Camera mainCam;
     public EnemyMovement eM;
     public PolygonCollider2D hit;
-
-   
+    
+    [Header("Adrians bull")]
+    static public List<GameObject> touching = new List<GameObject>();
+    public LayerMask layers;
    
     void Start()
     {
@@ -34,7 +37,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-
+        
+        Debug.Log(touching.Count);
     }
 
     IEnumerator AttackBetter()
@@ -42,9 +46,14 @@ public class PlayerAttack : MonoBehaviour
         attacking = true;
         canAttack = false;
         attackArea.SetActive(true);
-        Damage();
-
-
+        yield return new WaitForSeconds(0.1f);
+        if (touching.Count > 0)
+        {
+            for (int i = 0; i < touching.Count; i++)
+            {
+                touching[i].GetComponent<EnemyMovement>().damage();
+            }
+        }
         yield return new WaitForSeconds(timeToAttack);
 
         attacking = false;
@@ -57,7 +66,6 @@ public class PlayerAttack : MonoBehaviour
 
     public void HandleAttack(InputAction.CallbackContext context)
     {
-
         if (context.performed && canAttack)
         {
             StartCoroutine(AttackBetter());
@@ -65,6 +73,7 @@ public class PlayerAttack : MonoBehaviour
     }
     public void Damage()
     {
+
         eM.enemyHealth -= 1;
         Debug.Log("Minus 1 enemy hp");
     }
@@ -107,4 +116,6 @@ public class PlayerAttack : MonoBehaviour
 
         //attackArea.transform.Translate(movement, Space.World);
     }
+
+
 }

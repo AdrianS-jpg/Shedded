@@ -67,7 +67,6 @@ public class EnemyMovement : MonoBehaviour
             randomDirection3 += transform.position;
             NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, 1);
             finalPosition3 = hit3.position;
-            Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
         }
         Debug.Log(finalPosition);
         Debug.Log(finalPosition3);
@@ -78,10 +77,8 @@ public class EnemyMovement : MonoBehaviour
         gameObject.transform.rotation = new Quaternion(0,0,0,0);
         targdirection = self.position - targ.position;
         ray = Physics2D.Raycast(transform.position, -targdirection, distance, ~layer);
-        
-
         Debug.DrawRay(transform.position, - targdirection);
-        Debug.Log(ray.collider.gameObject.name);
+
         if (MaskToggle.isHiding == false)
         {
             if (attackCor == false)
@@ -114,16 +111,21 @@ public class EnemyMovement : MonoBehaviour
               
             }
         }
-
-        if (enemyHealth == 0)
-        {
-            Destroy(gameObject);
-            Debug.Log("Dead");
-            enemyKilled = true; 
-        }
         Debug.Log(transform.forward);
-
+        if (hitbox.IsTouching(PlayerAttack.attackArea.GetComponent<PolygonCollider2D>()))
+        {
+            PlayerAttack.touching.Add(gameObject);
+            Debug.Log("helpme");
+        }
     }
+
+    public void damage() {
+        StopAllCoroutines();
+        hitbox.enabled = false;
+        hurtbox.enabled = false;
+        StartCoroutine(dam());
+    }
+
 
     IEnumerator Run() //(a)
     {
@@ -131,7 +133,7 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<NavMeshAgent>().autoBraking = true;
         GetComponent<NavMeshAgent>().speed = 1f;
         GetComponent<NavMeshAgent>().angularSpeed = 30f;
-        GetComponent<NavMeshAgent>(). acceleration = 3f;
+        GetComponent<NavMeshAgent>().acceleration = 3f;
 
 
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
@@ -147,16 +149,34 @@ public class EnemyMovement : MonoBehaviour
             {
                 agent.SetDestination(finalPosition);
             }
-                yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.1f);
 
         }
         StartCoroutine(runthesecond());
-        StopCoroutine(Run());
+        yield break;
     }
 
-    IEnumerator wait()
+    IEnumerator dam()
     {
-
+        //put stun code here ig
+        //dont look at me man i have zero creativity
+        Debug.Log("fire");
+        enemyHealth -= 1;
+        if (enemyHealth == 0)
+        {
+            MaskToggle.canHide = true;
+            Destroy(gameObject);
+            Debug.Log("Dead");
+        }
+        yield return new WaitForSeconds(1f);
+        if (seePlayer == true)
+        {
+            StartCoroutine(runthesecond());
+        } else
+        {
+            StartCoroutine(Run());
+        }
+        hurtbox.enabled = true;
         yield break;
     }
 
@@ -260,7 +280,6 @@ public class EnemyMovement : MonoBehaviour
         StopCoroutine(attack());
     }
 
-    
     //new thing lol 
     //coroutine? (no idea how to spell that)
     //when close enough
