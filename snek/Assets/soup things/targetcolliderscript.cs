@@ -5,14 +5,14 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class targetcolliderscript : MonoBehaviour
 {
-    public CircleCollider2D hitbox;
-    public BoxCollider2D hurtbox;
+    public PolygonCollider2D hitbox;
+    public CapsuleCollider2D hurtbox;
     public boxeslol boxeslol;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         hurtbox.enabled = true;
-        hitbox.enabled = false;
+        hitbox.enabled = true;
         GameObject.Find("enemy").GetComponent<Enemy>().targetList.Add(gameObject);
     }
 
@@ -25,29 +25,4 @@ public class targetcolliderscript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-    private void OnMouseDown()
-    {
-        Debug.Log("adasdfas");
-        if (hitbox.enabled == true)
-        {
-            hitbox.enabled = false;
-        }
-        else
-        {
-            hitbox.enabled = true;
-        }
-
-    }
-
-    IEnumerator Attack()
-    {
-        for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
-        {
-            yield return null;
-        }
-    }
 }

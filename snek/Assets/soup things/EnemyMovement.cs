@@ -1,5 +1,6 @@
 using System.Buffers;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,10 +14,11 @@ public class EnemyMovement : MonoBehaviour
     public Vector2 targdirection;
 
     [Header("Components")]
-    public CircleCollider2D hitbox;
+    public PolygonCollider2D hitbox;
     public BoxCollider2D hurtbox;
     public boxeslol boxeslol;
     NavMeshAgent agent;
+
 
     [Header("Bools")]
     public bool attackCor = false;
@@ -36,9 +38,10 @@ public class EnemyMovement : MonoBehaviour
     public Vector3 finalPosition3;
 
     public LayerMask layer;
-
+    public static GameObject GameObject;
     private void Start()
     {
+        GameObject = gameObject;
         hurtbox.enabled = true;
         hitbox.enabled = false;
 
@@ -114,12 +117,28 @@ public class EnemyMovement : MonoBehaviour
         Debug.Log(transform.forward);
         if (hitbox.IsTouching(PlayerAttack.attackArea.GetComponent<PolygonCollider2D>()))
         {
-            PlayerAttack.touching.Add(gameObject);
-            Debug.Log("helpme");
+            if (PlayerAttack.touching.Contains(gameObject))
+            {
+                
+            }
+            else
+            {
+                PlayerAttack.touching.Add(gameObject);
+                
+            }
+        } else
+        {
+            PlayerAttack.touching.RemoveAll(ifGameObject);
         }
     }
 
+    public static bool ifGameObject(GameObject thing)
+    {
+        return thing == GameObject;
+    }
+
     public void damage() {
+        Debug.Log("helpme");
         StopAllCoroutines();
         hitbox.enabled = false;
         hurtbox.enabled = false;
@@ -160,6 +179,7 @@ public class EnemyMovement : MonoBehaviour
     {
         //put stun code here ig
         //dont look at me man i have zero creativity
+        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
         Debug.Log("fire");
         enemyHealth -= 1;
         if (enemyHealth == 0)
@@ -193,14 +213,33 @@ public class EnemyMovement : MonoBehaviour
                 agent.SetDestination(targ.position);
                 yield return new WaitForSeconds(0.2f);
                 // Debug.Log("aaaaaaa");
-            if (targdirection.x >= 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = false;
-            } else
-            {
+                if (targdirection.x >= 0)
+                {
+                    for (int i = 0; i < hitbox.points.Length; i++)
+                    {
+                        if (hitbox.points[i].x > 0)
+                        {
+                            hitbox.points[i] = new Vector2(hitbox.points[i].x * -1, hitbox.points[i].y);
+                        }                
+                    }
+                    GetComponent<SpriteRenderer>().flipX = false;
+                Debug.Log("left");
+                } else
+                {
+                    for (int i = 0; i < hitbox.points.Length; i++)
+                    {
+                    Debug.Log("whyyhadjhasuh");
+                    Debug.Log(hitbox.points[i].x);
+                        if (hitbox.points[i].x < 0)
+                        {
+                        hitbox.points[i] = new Vector2(Mathf.Abs(hitbox.points[i].x), hitbox.points[i].y);
+                        Debug.Log(hitbox.points[i].x);
+                    } 
+                }
                 GetComponent<SpriteRenderer>().flipX = true;
+                Debug.Log("right");
             }
-            }
+        }
             if (distance <= 1f && seePlayer == true)
             {
                 agent.SetDestination(gameObject.transform.position);
@@ -291,6 +330,7 @@ public class EnemyMovement : MonoBehaviour
     //man was dexton capping? (quite possibly)
 
     // i fixed the attack but the stupid ray.collider.gameObject.name code is generating thousands of errors 
+    //he be a little silly like that (ignore it its stupid)
 
 }
 

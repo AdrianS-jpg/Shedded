@@ -71,7 +71,7 @@ public class MaskToggle : MonoBehaviour
         canHide = false;
         gameObject.layer = 8;
         Debug.Log("Stop hiding");
-
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         yield return null;
     }
 }
