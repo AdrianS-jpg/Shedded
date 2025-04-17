@@ -107,6 +107,8 @@ public class PlayerAttack : MonoBehaviour
         //misinformation
         //im being gaslight chat
 
+        // wrong grammer. youre being gaslit**
+
 
         //float moveHorizontal = Input.GetAxisRaw ("Horizontal");
         //float moveVertical = Input.GetAxisRaw ("Vertical");
