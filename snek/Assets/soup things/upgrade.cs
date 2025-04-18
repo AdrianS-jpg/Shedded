@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class upgrade : MonoBehaviour
 {
+    static public bool healthOnKillBool = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +16,21 @@ public class upgrade : MonoBehaviour
         
     }
 
-    public void menutoggle(InputAction.CallbackContext context){
-        Debug.Log(context + "asdfasdfasdfasdfs");
+    public void healthOnKillAct()
+    {
+        healthOnKillBool = true;
+    }
+
+    public void healthOnKillThing()
+    {
+        if (PlayerHealth.maxHealth > PlayerHealth.health)
+        {
+            PlayerHealth.health += 1;
+        }
+        
+    }
+
+    public void increasedKnockback() { 
+        
     }
 }

@@ -28,6 +28,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Adrians bull")]
     static public List<GameObject> touching = new List<GameObject>();
     public LayerMask layers;
+
    
     void Start()
     {

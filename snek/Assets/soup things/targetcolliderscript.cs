@@ -8,6 +8,7 @@ public class targetcolliderscript : MonoBehaviour
     public PolygonCollider2D hitbox;
     public CapsuleCollider2D hurtbox;
     public boxeslol boxeslol;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

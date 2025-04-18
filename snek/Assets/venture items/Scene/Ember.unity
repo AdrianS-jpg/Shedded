@@ -36460,18 +36460,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1691696216}
     - target: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 322
       objectReference: {fileID: 0}
@@ -36481,7 +36469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36514,6 +36502,10 @@ PrefabInstance:
     - target: {fileID: 6191826700535404109, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: layers.m_Bits
       value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723559561771278010, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6753496362428952432, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: eM
@@ -37088,6 +37080,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1220207371}
     m_Modifications:
+    - target: {fileID: 1021309267428496716, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494853002715441999, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3842447109591142666, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
       propertyPath: pH
       value: 
@@ -37096,10 +37096,6 @@ PrefabInstance:
       propertyPath: targ
       value: 
       objectReference: {fileID: 511858798}
-    - target: {fileID: 3996727020958293417, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5971220702149518972, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
       propertyPath: m_LocalPosition.x
       value: -120

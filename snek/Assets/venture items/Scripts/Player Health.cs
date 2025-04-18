@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] 
-    public int maxHealth = 5;
-    public int health;
+    static public int maxHealth = 5;
+    static public int health;
    // public Slider slider;
     public EnemyMovement eM;
 

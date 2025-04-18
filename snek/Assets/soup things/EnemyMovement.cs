@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     public Vector2 targdirection;
 
     [Header("Components")]
+    public GameObject hitboxout;
     public PolygonCollider2D hitbox;
     public BoxCollider2D hurtbox;
     public boxeslol boxeslol;
@@ -115,7 +116,7 @@ public class EnemyMovement : MonoBehaviour
             }
         }
         Debug.Log(transform.forward);
-        if (hitbox.IsTouching(PlayerAttack.attackArea.GetComponent<PolygonCollider2D>()))
+        if (hurtbox.IsTouching(PlayerAttack.attackArea.GetComponent<PolygonCollider2D>()))
         {
             if (PlayerAttack.touching.Contains(gameObject))
             {
@@ -140,11 +141,13 @@ public class EnemyMovement : MonoBehaviour
     public void damage() {
         Debug.Log("helpme");
         StopAllCoroutines();
+        agent.ResetPath();
         hitbox.enabled = false;
         hurtbox.enabled = false;
         StartCoroutine(dam());
     }
 
+    //coroutine hell V
 
     IEnumerator Run() //(a)
     {
@@ -153,12 +156,9 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<NavMeshAgent>().speed = 1f;
         GetComponent<NavMeshAgent>().angularSpeed = 30f;
         GetComponent<NavMeshAgent>().acceleration = 3f;
-
-
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        while (seePlayer == false) { 
-            
-            
+        while (seePlayer == false) 
+        { 
             if ((transform.position.x + 0.5 >= finalPosition.x && transform.position.x - 0.5 <= finalPosition.x) && (transform.position.y + 0.5 >= finalPosition.y && transform.position.y - 0.5 <= finalPosition.y))
             {
                 //ignore this if statement guys please
@@ -185,9 +185,16 @@ public class EnemyMovement : MonoBehaviour
         if (enemyHealth == 0)
         {
             MaskToggle.canHide = true;
-            Destroy(gameObject);
             Debug.Log("Dead");
+            if (upgrade.healthOnKillBool == true)
+            {
+                GetComponent<upgrade>().healthOnKillThing();
+            }
+            Destroy(gameObject);
+            
         }
+        transform.position = new Vector3(transform.position.x + targdirection.x,transform.position.y + targdirection.y,0);
+        agent.SetDestination(gameObject.transform.position);
         yield return new WaitForSeconds(1f);
         if (seePlayer == true)
         {
@@ -196,6 +203,7 @@ public class EnemyMovement : MonoBehaviour
         {
             StartCoroutine(Run());
         }
+        yield return new WaitForSeconds(0.5f);
         hurtbox.enabled = true;
         yield break;
     }
@@ -209,42 +217,25 @@ public class EnemyMovement : MonoBehaviour
 
         gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
         while (distance >= 1f && seePlayer == true)
+        {
+            agent.SetDestination(targ.position);
+            yield return new WaitForSeconds(0.2f);
+            // Debug.Log("aaaaaaa");
+            if (targdirection.x >= 0)
             {
-                agent.SetDestination(targ.position);
-                yield return new WaitForSeconds(0.2f);
-                // Debug.Log("aaaaaaa");
-                if (targdirection.x >= 0)
-                {
-                    for (int i = 0; i < hitbox.points.Length; i++)
-                    {
-                        if (hitbox.points[i].x > 0)
-                        {
-                            hitbox.points[i] = new Vector2(hitbox.points[i].x * -1, hitbox.points[i].y);
-                        }                
-                    }
-                    GetComponent<SpriteRenderer>().flipX = false;
-                Debug.Log("left");
-                } else
-                {
-                    for (int i = 0; i < hitbox.points.Length; i++)
-                    {
-                    Debug.Log("whyyhadjhasuh");
-                    Debug.Log(hitbox.points[i].x);
-                        if (hitbox.points[i].x < 0)
-                        {
-                        hitbox.points[i] = new Vector2(Mathf.Abs(hitbox.points[i].x), hitbox.points[i].y);
-                        Debug.Log(hitbox.points[i].x);
-                    } 
-                }
+                hitboxout.transform.rotation = Quaternion.Euler(1,1,0);    
+                GetComponent<SpriteRenderer>().flipX = false;
+            } else
+            {
+                hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
                 GetComponent<SpriteRenderer>().flipX = true;
-                Debug.Log("right");
-            }
+            }       
         }
             if (distance <= 1f && seePlayer == true)
             {
-                agent.SetDestination(gameObject.transform.position);
+                
                 StartCoroutine(attack());
-                StopCoroutine(runthesecond());
+            yield break;
             }
             else if (seePlayer == false)
             {
@@ -260,10 +251,12 @@ public class EnemyMovement : MonoBehaviour
             agent.SetDestination(targ.position);
             if (targdirection.x >= 0)
             {
+                hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
                 GetComponent<SpriteRenderer>().flipX = false;
             }
             else
             {
+                hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
                 GetComponent<SpriteRenderer>().flipX = true;
             }
             yield return new WaitForSeconds(0.1f);
@@ -279,7 +272,7 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        agent.SetDestination(gameObject.transform.position);
+        
         StartCoroutine(Run());
         yield break;
     }
@@ -289,10 +282,12 @@ public class EnemyMovement : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         if (targdirection.x >= 0)
         {
+            hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
             GetComponent<SpriteRenderer>().flipX = false;
         }
         else
         {
+            hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
             GetComponent<SpriteRenderer>().flipX = true;
         }
         yield return new WaitForSeconds(0.5f);
@@ -305,8 +300,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
         {
-            pH.health = pH.health - 1;
-
+            PlayerHealth.health = PlayerHealth.health - 1;
         }
 
         yield return new WaitForSeconds(0.5f);
