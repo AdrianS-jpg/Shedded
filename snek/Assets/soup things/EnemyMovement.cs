@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem.Android;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -179,6 +178,7 @@ public class EnemyMovement : MonoBehaviour
     {
         //put stun code here ig
         //dont look at me man i have zero creativity
+        
         gameObject.GetComponent<SpriteRenderer>().color = Color.green;
         Debug.Log("fire");
         enemyHealth -= 1;
@@ -193,9 +193,11 @@ public class EnemyMovement : MonoBehaviour
             Destroy(gameObject);
             
         }
-        transform.position = new Vector3(transform.position.x + targdirection.x,transform.position.y + targdirection.y,0);
-        agent.SetDestination(gameObject.transform.position);
+        //transform.position = new Vector3(transform.position.x + targdirection.x,transform.position.y + targdirection.y,0);
+        agent.velocity = Vector3.zero;
+        gameObject.transform.position = new Vector3(transform.position.x + targdirection.x, transform.position.y + targdirection.y, 0);
         yield return new WaitForSeconds(1f);
+
         if (seePlayer == true)
         {
             StartCoroutine(runthesecond());
@@ -279,6 +281,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator attack()
     {
+        agent.SetDestination(targ.position);
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         if (targdirection.x >= 0)
         {
@@ -292,19 +295,21 @@ public class EnemyMovement : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
         
-        hitbox.enabled = true;
+        
         attackCor = true;
         GetComponent<SpriteRenderer>().color = Color.yellow;
-
+        agent.SetDestination(targ.position);
         yield return new WaitForSeconds(.25f);
-
-        if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
+        hitbox.enabled = true;
+        for (int i = 0; i < 25; i++) 
         {
-            PlayerHealth.health = PlayerHealth.health - 1;
+            if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
+            {
+                targ.GetComponent<PlayerHealth>().Damage();
+                break;
+            }
+            yield return new WaitForSeconds(0.02f);
         }
-
-        yield return new WaitForSeconds(0.5f);
-
         attackCor = false;
         hitbox.enabled = false;
         GetComponent<SpriteRenderer>().color = Color.white;

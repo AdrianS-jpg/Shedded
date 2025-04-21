@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,14 +29,29 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Damage()
     {
-        eM.enemyHealth -= 1;
-        Debug.Log("Minus 1 enemy hp");
+        health -= 1;
+        StartCoroutine(Damagei());
+        Debug.Log("AHHHHHHHHHHHHHHHHHHHHHHHHHH");
     }
 
     private void Die()
     {
         Debug.Log("You Died!");
         Destroy(gameObject);
+    }
+    //this is optimal i promise
+    IEnumerator Damagei()
+    {
+        GetComponent<SpriteRenderer>().color = Color.magenta;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<Movement>().movementSpeed = 0;
+        GetComponent<Movement>().canDash = false;
+        yield return new WaitForSeconds(1f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        GetComponent<Movement>().movementSpeed = 5;
+        GetComponent<Movement>().canDash = true;
+        yield break;
     }
 }
 

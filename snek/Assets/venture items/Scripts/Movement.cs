@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     public float dashDuration = 0.1f;
     public float dashCooldown = 0.1f;
     bool isDashing;
-    bool canDash = true;
+    public bool canDash = true;
     TrailRenderer _trailRenderer;
 
     void Awake()
