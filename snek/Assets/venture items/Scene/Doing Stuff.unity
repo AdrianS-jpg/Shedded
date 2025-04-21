@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 854007614}
   - component: {fileID: 854007613}
   - component: {fileID: 854007612}
+  - component: {fileID: 854007618}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -816,6 +817,7 @@ MonoBehaviour:
   targ: {fileID: 1119290731}
   self: {fileID: 854007611}
   targdirection: {x: 0, y: 0}
+  hitboxout: {fileID: 0}
   hitbox: {fileID: 854007615}
   hurtbox: {fileID: 854007616}
   boxeslol: {fileID: 11400000, guid: 73ce2de9f3c1ea448920384aad422a41, type: 2}
@@ -995,6 +997,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &854007618
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854007610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b5d4d60c974f4c6459c24995863c25f3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &919990201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &919990202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1128,11 +1152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eM: {fileID: 854007613}
   hideDuration: 5
---- !u!58 &1119290722 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 316322937925345818, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
-  m_PrefabInstance: {fileID: 1834883506}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1119290724 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6753496362428952432, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
@@ -1160,6 +1179,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
   m_PrefabInstance: {fileID: 1834883506}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1119290732
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119290718}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: be2238f1fe68bd945b403168403e2ba6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1144811875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,7 +1706,7 @@ PrefabInstance:
     - target: {fileID: 2576983796665016664, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: hitbox
       value: 
-      objectReference: {fileID: 1119290722}
+      objectReference: {fileID: 0}
     - target: {fileID: 2688958789037048345, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_Size.x
       value: 2.944
@@ -2047,6 +2088,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8003850924069793910, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1119290720}
+    - targetCorrespondingSourceObject: {fileID: 8003850924069793910, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1119290732}
   m_SourcePrefab: {fileID: 100100000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
 --- !u!1 &1891638276
 GameObject:
