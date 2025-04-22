@@ -1,6 +1,7 @@
 using System.Buffers;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,6 +19,7 @@ public class EnemyMovement : MonoBehaviour
     public BoxCollider2D hurtbox;
     public boxeslol boxeslol;
     NavMeshAgent agent;
+    public Animator animator;
 
     [Header("Bools")]
     public bool attackCor = false;
@@ -267,9 +269,11 @@ public class EnemyMovement : MonoBehaviour
         }
             if (distance <= 1f && seePlayer == true)
             {
-                
                 StartCoroutine(attack());
-            yield break;
+
+                animator.SetBool("attacking", attackCor);
+
+                yield break;
             }
             else if (seePlayer == false)
             {
@@ -348,8 +352,14 @@ public class EnemyMovement : MonoBehaviour
 
         StartCoroutine(runthesecond());
         StopCoroutine(attack());
+
+       
     }
 
+    public void OnAttack(bool attacking)
+    {
+        animator.SetBool("attacking", attackCor);
+    }
     //new thing lol 
     //coroutine? (no idea how to spell that)
     //when close enough

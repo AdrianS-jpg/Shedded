@@ -1,28 +1,31 @@
 fileFormatVersion: 2
-guid: 74e6ff742daf7b04b92b54b900a5037d
+guid: e35413ac782e76f408a479963329b627
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7944549761384908084
-    second: komo swipe sprite sheet copy_0
+      213: -4428695183529415208
+    second: pineapple run sprite sheet copy_0
   - first:
-      213: -106665194104367163
-    second: komo swipe sprite sheet copy_1
+      213: 6734383421357492949
+    second: pineapple run sprite sheet copy_1
   - first:
-      213: 1655824942871589328
-    second: komo swipe sprite sheet copy_2
+      213: -2559464067617221562
+    second: pineapple run sprite sheet copy_2
   - first:
-      213: 5483173055412428748
-    second: komo swipe sprite sheet copy_3
+      213: 8582549408071981159
+    second: pineapple run sprite sheet copy_3
   - first:
-      213: -9085477385755718994
-    second: komo swipe sprite sheet copy_4
+      213: -4785310872434471465
+    second: pineapple run sprite sheet copy_4
   - first:
-      213: -5188036611384775505
-    second: komo swipe sprite sheet copy_5
+      213: 2704044162376070510
+    second: pineapple run sprite sheet copy_5
   - first:
-      213: 4626546045822298822
-    second: komo swipe sprite sheet copy_6
+      213: 45743196975604183
+    second: pineapple run sprite sheet copy_6
+  - first:
+      213: -3322319118160043090
+    second: pineapple run sprite sheet copy_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -144,155 +147,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: komo swipe sprite sheet copy_0
+      name: pineapple run sprite sheet copy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 900
-        height: 600
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ee40e331411e2404cb65ef83ebeac26d
-      internalID: -2049802032
+      spriteID: 8ddee3fd13d1a82c0800000000000000
+      internalID: -4428695183529415208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: komo swipe sprite sheet copy_1
+      name: pineapple run sprite sheet copy_1
       rect:
         serializedVersion: 2
-        x: 900
+        x: 400
         y: 0
-        width: 900
-        height: 600
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cf05ad3ed9182e64aa639f06bd63800c
-      internalID: -1258623600
+      spriteID: 5da0b4b9a06557d50800000000000000
+      internalID: 6734383421357492949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: komo swipe sprite sheet copy_2
+      name: pineapple run sprite sheet copy_2
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 800
         y: 0
-        width: 900
-        height: 600
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 497564da4a219a345908ccc0c091dbd3
-      internalID: 1190524989
+      spriteID: 6449c4abdf4fa7cd0800000000000000
+      internalID: -2559464067617221562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: komo swipe sprite sheet copy_3
+      name: pineapple run sprite sheet copy_3
       rect:
         serializedVersion: 2
-        x: 2700
+        x: 1200
         y: 0
-        width: 900
-        height: 600
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 056c154cbe126c143875a3aefd0f48d1
-      internalID: -1328555437
+      spriteID: 7689e5fd6375b1770800000000000000
+      internalID: 8582549408071981159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: komo swipe sprite sheet copy_4
+      name: pineapple run sprite sheet copy_4
       rect:
         serializedVersion: 2
-        x: 3600
+        x: 1600
         y: 0
-        width: 900
-        height: 600
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 69ab762bd02b61e40909821f522ad7da
-      internalID: -779371362
+      spriteID: 7dd8abc7d19279db0800000000000000
+      internalID: -4785310872434471465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: komo swipe sprite sheet copy_5
+      name: pineapple run sprite sheet copy_5
       rect:
         serializedVersion: 2
-        x: 4500
+        x: 2000
         y: 0
-        width: 900
-        height: 600
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 552d75eb589d93743aee316fe8f3b7fb
-      internalID: -961416779
+      spriteID: e65f46bc6d1b68520800000000000000
+      internalID: 2704044162376070510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: komo swipe sprite sheet copy_6
+      name: pineapple run sprite sheet copy_6
       rect:
         serializedVersion: 2
-        x: 5400
+        x: 2400
         y: 0
-        width: 900
-        height: 600
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 192a5cc5395282e46bad7cd3c5970133
-      internalID: -473278180
+      spriteID: 7d12f9ef13382a000800000000000000
+      internalID: 45743196975604183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pineapple run sprite sheet copy_7
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3e49b4d50c4e1d0800000000000000
+      internalID: -3322319118160043090
       vertices: []
       indices: 
       edges: []
@@ -301,7 +326,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 97e41b1c2805393418da789b806e656d
+    spriteID: d2386eb1a8235dc4c889a65d1143e121
     internalID: 0
     vertices: []
     indices: 
@@ -311,13 +336,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      komo swipe sprite sheet copy_0: -2049802032
-      komo swipe sprite sheet copy_1: -1258623600
-      komo swipe sprite sheet copy_2: 1190524989
-      komo swipe sprite sheet copy_3: -1328555437
-      komo swipe sprite sheet copy_4: -779371362
-      komo swipe sprite sheet copy_5: -961416779
-      komo swipe sprite sheet copy_6: -473278180
+      pineapple run sprite sheet copy_0: -4428695183529415208
+      pineapple run sprite sheet copy_1: 6734383421357492949
+      pineapple run sprite sheet copy_2: -2559464067617221562
+      pineapple run sprite sheet copy_3: 8582549408071981159
+      pineapple run sprite sheet copy_4: -4785310872434471465
+      pineapple run sprite sheet copy_5: 2704044162376070510
+      pineapple run sprite sheet copy_6: 45743196975604183
+      pineapple run sprite sheet copy_7: -3322319118160043090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

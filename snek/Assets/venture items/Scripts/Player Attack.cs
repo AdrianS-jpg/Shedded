@@ -24,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     public Camera mainCam;
     public EnemyMovement eM;
     public PolygonCollider2D hit;
+    public Animator animator; 
     
     [Header("Adrians bull")]
     static public List<GameObject> touching = new List<GameObject>();
@@ -55,6 +56,9 @@ public class PlayerAttack : MonoBehaviour
                 touching[i].GetComponent<EnemyMovement>().damage();
             }
         }
+
+        animator.SetBool("attacking", attacking);
+
         yield return new WaitForSeconds(timeToAttack);
 
         attacking = false;
@@ -72,6 +76,8 @@ public class PlayerAttack : MonoBehaviour
             StartCoroutine(AttackBetter());
         }
     }
+   
+
     public void Damage()
     {
 
