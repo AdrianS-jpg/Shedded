@@ -19,7 +19,6 @@ public class EnemyMovement : MonoBehaviour
     public boxeslol boxeslol;
     NavMeshAgent agent;
 
-
     [Header("Bools")]
     public bool attackCor = false;
     public bool enemyKilled = false;
@@ -39,8 +38,11 @@ public class EnemyMovement : MonoBehaviour
 
     public LayerMask layer;
     public static GameObject GameObject;
+    public float exe;
+    public bool facingplayer;
     private void Start()
     {
+        exe = transform.position.x;
         GameObject = gameObject;
         hurtbox.enabled = true;
         hitbox.enabled = false;
@@ -117,18 +119,44 @@ public class EnemyMovement : MonoBehaviour
         Debug.Log(transform.forward);
         if (hurtbox.IsTouching(PlayerAttack.attackArea.GetComponent<PolygonCollider2D>()))
         {
-            if (PlayerAttack.touching.Contains(gameObject))
-            {
-                
-            }
-            else
+            if (PlayerAttack.touching.Contains(gameObject) != true)
             {
                 PlayerAttack.touching.Add(gameObject);
-                
             }
         } else
         {
             PlayerAttack.touching.RemoveAll(ifGameObject);
+        }
+        if (targdirection.x <= 0)
+        {
+            if (GetComponent<SpriteRenderer>().flipX == false)
+            {
+                facingplayer = false;
+            }
+            else
+            {
+                facingplayer = true;
+            }
+        } else
+        {
+            if (GetComponent<SpriteRenderer>().flipX == true)
+            {
+                facingplayer = false;
+            }
+            else
+            {
+                facingplayer = true;
+            }
+        }
+        if (exe > transform.position.x)
+        {
+            hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
@@ -156,7 +184,7 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<NavMeshAgent>().angularSpeed = 30f;
         GetComponent<NavMeshAgent>().acceleration = 3f;
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        while (seePlayer == false) 
+        while (seePlayer == false || facingplayer == false) 
         { 
             if ((transform.position.x + 0.5 >= finalPosition.x && transform.position.x - 0.5 <= finalPosition.x) && (transform.position.y + 0.5 >= finalPosition.y && transform.position.y - 0.5 <= finalPosition.y))
             {
@@ -167,9 +195,13 @@ public class EnemyMovement : MonoBehaviour
             {
                 agent.SetDestination(finalPosition);
             }
+            
+
+            exe = transform.position.x;
             yield return new WaitForSeconds(0.1f);
 
         }
+
         StartCoroutine(runthesecond());
         yield break;
     }
@@ -197,14 +229,14 @@ public class EnemyMovement : MonoBehaviour
         agent.velocity = Vector3.zero;
         gameObject.transform.position = new Vector3(transform.position.x + targdirection.x, transform.position.y + targdirection.y, 0);
         yield return new WaitForSeconds(1f);
-
-        if (seePlayer == true)
-        {
-            StartCoroutine(runthesecond());
-        } else
-        {
-            StartCoroutine(Run());
-        }
+            if (seePlayer == true)
+            {
+                StartCoroutine(runthesecond());
+            }
+            else
+            {
+                StartCoroutine(Run());
+            }
         yield return new WaitForSeconds(0.5f);
         hurtbox.enabled = true;
         yield break;
@@ -223,15 +255,15 @@ public class EnemyMovement : MonoBehaviour
             agent.SetDestination(targ.position);
             yield return new WaitForSeconds(0.2f);
             // Debug.Log("aaaaaaa");
-            if (targdirection.x >= 0)
-            {
-                hitboxout.transform.rotation = Quaternion.Euler(1,1,0);    
-                GetComponent<SpriteRenderer>().flipX = false;
-            } else
-            {
-                hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
-                GetComponent<SpriteRenderer>().flipX = true;
-            }       
+            //if (targdirection.x >= 0)
+            //{
+            //    hitboxout.transform.rotation = Quaternion.Euler(1,1,0);    
+            //    GetComponent<SpriteRenderer>().flipX = false;
+            //} else
+            //{
+            //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
+            //    GetComponent<SpriteRenderer>().flipX = true;
+            //}       
         }
             if (distance <= 1f && seePlayer == true)
             {
@@ -251,16 +283,16 @@ public class EnemyMovement : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         for (int i = 0; i < 10; i++) {
             agent.SetDestination(targ.position);
-            if (targdirection.x >= 0)
-            {
-                hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
-                GetComponent<SpriteRenderer>().flipX = false;
-            }
-            else
-            {
-                hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
-                GetComponent<SpriteRenderer>().flipX = true;
-            }
+            //if (targdirection.x >= 0)
+            //{
+            //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
+            //    GetComponent<SpriteRenderer>().flipX = false;
+            //}
+            //else
+            //{
+            //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
+            //    GetComponent<SpriteRenderer>().flipX = true;
+            //}
             yield return new WaitForSeconds(0.1f);
 
             if (seePlayer == true) {
@@ -283,16 +315,16 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.SetDestination(targ.position);
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        if (targdirection.x >= 0)
-        {
-            hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else
-        {
-            hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
+        //if (targdirection.x >= 0)
+        //{
+        //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
+        //    GetComponent<SpriteRenderer>().flipX = false;
+        //}
+        //else
+        //{
+        //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
+        //    GetComponent<SpriteRenderer>().flipX = true;
+        //}
         yield return new WaitForSeconds(0.5f);
         
         

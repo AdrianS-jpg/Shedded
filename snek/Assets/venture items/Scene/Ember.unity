@@ -37080,10 +37080,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1220207371}
     m_Modifications:
-    - target: {fileID: 1021309267428496716, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1494853002715441999, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -37096,10 +37092,6 @@ PrefabInstance:
       propertyPath: targ
       value: 
       objectReference: {fileID: 511858798}
-    - target: {fileID: 3842447109591142666, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
-      propertyPath: enemyHealth
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5971220702149518972, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
       propertyPath: m_LocalPosition.x
       value: -120
