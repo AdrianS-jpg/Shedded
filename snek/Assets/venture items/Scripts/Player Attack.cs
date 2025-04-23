@@ -39,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        
+        animator.SetBool("attacking", attacking); 
        
     }
 
@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        animator.SetBool("attacking", attacking);
+        
 
         yield return new WaitForSeconds(timeToAttack);
 

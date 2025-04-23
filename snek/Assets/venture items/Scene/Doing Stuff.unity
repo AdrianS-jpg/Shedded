@@ -868,11 +868,15 @@ PrefabInstance:
     - target: {fileID: 3842447109591142666, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
       propertyPath: pH
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1119290735}
     - target: {fileID: 3842447109591142666, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
       propertyPath: targ
       value: 
       objectReference: {fileID: 1119290731}
+    - target: {fileID: 3842447109591142666, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1355578093}
     - target: {fileID: 3842447109591142666, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
       propertyPath: enemyHealth
       value: 3
@@ -998,6 +1002,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1119290735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 354384710176672736, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+  m_PrefabInstance: {fileID: 1834883506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119290718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053079eb05263e745b51bbeeb1b043a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1144811875
 GameObject:
   m_ObjectHideFlags: 0
