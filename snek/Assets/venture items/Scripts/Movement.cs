@@ -6,13 +6,15 @@ using UnityEngine.UIElements;
 public class Movement : MonoBehaviour
 {
     [Header("General")]
-    bool isFacingRight = true; 
+    bool isFacingRight = true;
+    public Animator animator;
 
     [Header("Movement")]
     public float movementSpeed;
     private Rigidbody2D _rb;
     private Vector2 _moveAmount;
     private float dashDirection;
+    float horizontalMove = 0f; 
    
 
     [Header("Dash/Sprint")]
@@ -26,20 +28,20 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-       
-        
     }
 
     private void Start()
     {
         _trailRenderer = GetComponent<TrailRenderer>();
-        
     }
 
     void Update()
     {
         _rb.linearVelocity = _moveAmount * movementSpeed;
 
+        horizontalMove = Input.GetAxisRaw("Horizontal") * movementSpeed; 
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         // put ani code above the if isDashing for it to run properly
 
