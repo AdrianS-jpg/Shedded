@@ -14,11 +14,9 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector2 _moveAmount;
     private float dashDirection;
-<<<<<<< HEAD
+
     private float exe;
-=======
     float horizontalMove = 0f; 
->>>>>>> af6fde13f7ded5910b8ceb679c03805236c30769
    
 
     [Header("Dash/Sprint")]
@@ -37,10 +35,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         _trailRenderer = GetComponent<TrailRenderer>();
-<<<<<<< HEAD
         exe = transform.position.x;
-=======
->>>>>>> af6fde13f7ded5910b8ceb679c03805236c30769
     }
 
     void Update()
