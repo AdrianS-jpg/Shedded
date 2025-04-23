@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector2 _moveAmount;
     private float dashDirection;
+    private float exe;
    
 
     [Header("Dash/Sprint")]
@@ -33,7 +34,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         _trailRenderer = GetComponent<TrailRenderer>();
-        
+        exe = transform.position.x;
     }
 
     void Update()
@@ -47,8 +48,17 @@ public class Movement : MonoBehaviour
         {
             return;
         }
+        if (exe > transform.position.x)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        exe = transform.position.x;
 
-      
+
     }
 
     public void HandleMovement(InputAction.CallbackContext context)
