@@ -329,10 +329,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7307e5e276fe1024f9ab6c0dc3fc4fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   movementSpeed: 5
   dashSpeed: 1.05
   dashDuration: 0.2
   dashCooldown: 0.1
+  canDash: 1
 --- !u!96 &1565453286692963143
 TrailRenderer:
   serializedVersion: 3
@@ -463,7 +465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 0}
   eM: {fileID: 0}
-  hit: {fileID: 0}
+  hit: {fileID: 6906972556694876042}
+  animator: {fileID: 0}
   layers:
     serializedVersion: 2
     m_Bits: 2048

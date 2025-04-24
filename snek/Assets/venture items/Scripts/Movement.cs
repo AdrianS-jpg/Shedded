@@ -52,22 +52,20 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-        if (exe > transform.position.x)
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-        exe = transform.position.x;
-
 
     }
 
     public void HandleMovement(InputAction.CallbackContext context)
     {
-        _moveAmount = context.ReadValue<Vector2>(); 
+        _moveAmount = context.ReadValue<Vector2>();
+        if (context.control == Keyboard.current["d"])
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        } 
+        if (context.control == Keyboard.current["a"])
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     public void HandleDash(InputAction.CallbackContext context)

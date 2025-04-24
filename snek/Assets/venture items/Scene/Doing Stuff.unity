@@ -877,10 +877,6 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1355578093}
-    - target: {fileID: 3842447109591142666, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
-      propertyPath: enemyHealth
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5971220702149518972, guid: 6ac091da04990c244a67163dddc7bc45, type: 3}
       propertyPath: m_LocalScale.x
       value: 100.00019
@@ -1658,10 +1654,6 @@ PrefabInstance:
       propertyPath: eM
       value: 
       objectReference: {fileID: 1355578095}
-    - target: {fileID: 6753496362428952432, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
-      propertyPath: hit
-      value: 
-      objectReference: {fileID: 718996545}
     - target: {fileID: 6753496362428952432, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: mainCam
       value: 

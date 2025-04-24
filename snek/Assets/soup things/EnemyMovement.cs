@@ -173,6 +173,7 @@ public class EnemyMovement : MonoBehaviour
         agent.ResetPath();
         hitbox.enabled = false;
         hurtbox.enabled = false;
+        PlayerAttack.touching.RemoveAll(ifGameObject);
         StartCoroutine(dam());
     }
 

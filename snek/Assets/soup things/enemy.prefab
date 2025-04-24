@@ -269,6 +269,7 @@ MonoBehaviour:
   hitbox: {fileID: 4814007050195814013}
   hurtbox: {fileID: 1494853002715441999}
   boxeslol: {fileID: 11400000, guid: 73ce2de9f3c1ea448920384aad422a41, type: 2}
+  animator: {fileID: 0}
   attackCor: 0
   enemyKilled: 0
   seePlayer: 0
@@ -281,6 +282,8 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 2049
+  exe: 0
+  facingplayer: 0
 --- !u!195 &1021309267428496716
 NavMeshAgent:
   m_ObjectHideFlags: 0

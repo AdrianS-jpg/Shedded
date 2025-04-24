@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
     private bool canAttack = true;
 
     [Header("Numbers")]
-    private float timeToAttack = 0.25f;
+    private float timeToAttack = 0.5f;
     private float timer = 0f;
 
     [Header("Components")]
@@ -39,13 +39,23 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        animator.SetBool("attacking", attacking); 
+        
        
     }
 
     IEnumerator AttackBetter()
     {
+        if (GetComponent<SpriteRenderer>().flipX == false)
+        {
+            hit.transform.rotation = Quaternion.Euler(0, 0, 0);
+        } else
+        {
+            hit.transform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+        gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
+        gameObject.GetComponent<Movement>().enabled = false;
         attacking = true;
+        animator.SetBool("attacking", attacking);
         canAttack = false;
         attackArea.SetActive(true);
         yield return new WaitForSeconds(0.1f);
@@ -62,8 +72,9 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(timeToAttack);
 
         attacking = false;
+        animator.SetBool("attacking", attacking);
         attackArea.SetActive(false);
-
+        gameObject.GetComponent<Movement>().enabled = true;
         yield return new WaitForSeconds(timer);
         
         canAttack = true;
@@ -98,15 +109,15 @@ public class PlayerAttack : MonoBehaviour
 
         //Debug.Log(Mouse.current.position.ReadValue());
         //Debug.Log(mainCam.WorldToScreenPoint(gameObject.transform.position));
-        var rad = ((Mathf.Atan2(mainCam.WorldToScreenPoint(gameObject.transform.position).y - Mouse.current.position.ReadValue().y, (mainCam.WorldToScreenPoint(gameObject.transform.position).x - Mouse.current.position.ReadValue().x)) * Mathf.Rad2Deg));
-        if (rad < 0)
-        {
-            rad = 180 + rad;
-        } else
-        {
-            rad = rad - 180;
-        }
-            attackArea.transform.rotation = Quaternion.Euler(1, 1, rad);
+        //var rad = ((Mathf.Atan2(mainCam.WorldToScreenPoint(gameObject.transform.position).y - Mouse.current.position.ReadValue().y, (mainCam.WorldToScreenPoint(gameObject.transform.position).x - Mouse.current.position.ReadValue().x)) * Mathf.Rad2Deg));
+        //if (rad < 0)
+        //{
+        //    rad = 180 + rad;
+        //} else
+        //{
+        //    rad = rad - 180;
+        //}
+        //    attackArea.transform.rotation = Quaternion.Euler(1, 1, rad);
 
         //third times the charm??
 

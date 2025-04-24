@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<Movement>().movementSpeed = 0;
         GetComponent<Movement>().canDash = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         GetComponent<SpriteRenderer>().color = Color.white;
         GetComponent<CapsuleCollider2D>().enabled = true;
         GetComponent<Movement>().movementSpeed = 5;
