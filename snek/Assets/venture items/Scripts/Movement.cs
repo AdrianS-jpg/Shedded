@@ -17,6 +17,8 @@ public class Movement : MonoBehaviour
 
     private float exe;
     float horizontalMove = 0f; 
+    float verticalMove = 0f;
+    float _move = 0f; 
    
 
     [Header("Dash/Sprint")]
@@ -42,9 +44,13 @@ public class Movement : MonoBehaviour
     {
         _rb.linearVelocity = _moveAmount * movementSpeed;
 
-        horizontalMove = Input.GetAxisRaw("Horizontal") * movementSpeed; 
+        horizontalMove = Input.GetAxisRaw("Horizontal") * movementSpeed;
+        verticalMove = Input.GetAxisRaw("Vertical") * movementSpeed;
 
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        _move = horizontalMove + verticalMove;
+
+        animator.SetFloat("Speed", Mathf.Abs(_move)); 
+        
 
         // put ani code above the if isDashing for it to run properly
 
