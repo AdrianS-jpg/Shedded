@@ -39,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        
+        Debug.Log(touching.Count);
        
     }
 

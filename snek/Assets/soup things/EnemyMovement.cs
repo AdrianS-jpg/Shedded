@@ -181,8 +181,15 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator Run() //(a)
     {
-        agent.SetDestination(finalPosition3);
-        GetComponent<NavMeshAgent>().autoBraking = true;
+        if (gameObject.GetComponent<NavMeshAgent>().enabled == true)
+        {
+            agent.SetDestination(finalPosition3);
+        }
+        else
+        {
+            Debug.Log("s");
+        }
+            GetComponent<NavMeshAgent>().autoBraking = true;
         GetComponent<NavMeshAgent>().speed = 1f;
         GetComponent<NavMeshAgent>().angularSpeed = 30f;
         GetComponent<NavMeshAgent>().acceleration = 3f;
@@ -247,6 +254,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator runthesecond() //(a)
     {
+        agent.SetDestination(finalPosition3);
         GetComponent<NavMeshAgent>().autoBraking = false;
         GetComponent<NavMeshAgent>().speed = 7f;
         GetComponent<NavMeshAgent>().angularSpeed = 120f;
