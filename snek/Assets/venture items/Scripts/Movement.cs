@@ -29,6 +29,8 @@ public class Movement : MonoBehaviour
     public bool canDash = true;
     TrailRenderer _trailRenderer;
 
+    public bool dee;
+    public bool ayy;
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -65,12 +67,32 @@ public class Movement : MonoBehaviour
     {
         _moveAmount = context.ReadValue<Vector2>();
         if (context.control == Keyboard.current["d"])
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
+        { if (dee == true)
+            {
+                dee = false;
+            }
+            else
+            {
+                dee = true;
+            }
         } 
-        if (context.control == Keyboard.current["a"])
+        else if (context.control == Keyboard.current["a"])
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            if (ayy == true)
+            {
+                ayy = false;
+            }
+            else
+            {
+                ayy = true;
+            }
+        }
+        if (dee == true && ayy == false)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        } else if (dee == false && ayy == true)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
