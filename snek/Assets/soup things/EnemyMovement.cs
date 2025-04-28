@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     public PolygonCollider2D hitbox;
     public BoxCollider2D hurtbox;
     public boxeslol boxeslol;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Animator animator;
 
     [Header("Bools")]
