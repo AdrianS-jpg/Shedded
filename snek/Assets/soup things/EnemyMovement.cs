@@ -42,6 +42,7 @@ public class EnemyMovement : MonoBehaviour
     public static GameObject GameObject;
     public float exe;
     public bool facingplayer;
+    
     private void Start()
     {
         exe = transform.position.x;
@@ -60,20 +61,21 @@ public class EnemyMovement : MonoBehaviour
         Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
         randomDirection += transform.position;
         NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, walkRadius, 1);
+        NavMesh.SamplePosition(randomDirection, out hit, walkRadius, NavMesh.AllAreas);
         finalPosition = hit.position;
         Vector3 randomDirection3 = Random.insideUnitSphere * walkRadius;
         randomDirection3 += transform.position;
         NavMeshHit hit3;
-        NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, 1);
+        NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, NavMesh.AllAreas);
         finalPosition3 = hit3.position;
         Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
-        while (Vector2.Distance(finalPosition, finalPosition3) >= 3)
+        while (Vector2.Distance(finalPosition, finalPosition3) <= 3)
         {
             randomDirection3 = Random.insideUnitSphere * walkRadius;
             randomDirection3 += transform.position;
-            NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, 1);
+            NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, NavMesh.AllAreas);
             finalPosition3 = hit3.position;
+            Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
         }
         Debug.Log(finalPosition);
         Debug.Log(finalPosition3);
@@ -118,7 +120,6 @@ public class EnemyMovement : MonoBehaviour
               
             }
         }
-        Debug.Log(transform.forward);
         if (hurtbox.IsTouching(PlayerAttack.attackArea.GetComponent<PolygonCollider2D>()))
         {
             if (PlayerAttack.touching.Contains(gameObject) != true)
