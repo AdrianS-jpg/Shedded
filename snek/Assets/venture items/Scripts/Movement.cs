@@ -60,40 +60,34 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+           ayy = true;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        { 
+           dee = true;
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+           ayy = false;
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        { 
+           dee = false;
+        }
+        if (ayy == true && dee == false)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        } else if (ayy == false && dee == true)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 
     public void HandleMovement(InputAction.CallbackContext context)
     {
         _moveAmount = context.ReadValue<Vector2>();
-        if (context.control == Keyboard.current["d"])
-        { if (dee == true)
-            {
-                dee = false;
-            }
-            else
-            {
-                dee = true;
-            }
-        } 
-        else if (context.control == Keyboard.current["a"])
-        {
-            if (ayy == true)
-            {
-                ayy = false;
-            }
-            else
-            {
-                ayy = true;
-            }
-        }
-        if (dee == true && ayy == false)
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        } else if (dee == false && ayy == true)
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
     }
 
     public void HandleDash(InputAction.CallbackContext context)
