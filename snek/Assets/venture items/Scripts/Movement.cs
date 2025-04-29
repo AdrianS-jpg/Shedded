@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector2 _moveAmount;
     private float dashDirection;
+    public bool isMoving;
 
     private float exe;
     float horizontalMove = 0f; 
@@ -25,7 +26,7 @@ public class Movement : MonoBehaviour
     public float dashSpeed = 20f;
     public float dashDuration = 0.1f;
     public float dashCooldown = 0.1f;
-    bool isDashing;
+    public bool isDashing;
     public bool canDash = true;
     TrailRenderer _trailRenderer;
 
@@ -51,8 +52,7 @@ public class Movement : MonoBehaviour
 
         _move = horizontalMove + verticalMove;
 
-        animator.SetFloat("Speed", Mathf.Abs(_move)); 
-        
+       
 
         // put ani code above the if isDashing for it to run properly
 
@@ -88,8 +88,21 @@ public class Movement : MonoBehaviour
     public void HandleMovement(InputAction.CallbackContext context)
     {
         _moveAmount = context.ReadValue<Vector2>();
+
+        if (context.performed)
+        {
+            isMoving = true;
+            animator.SetBool("move", isMoving);
+        }
+        else
+        {
+            isMoving = false;
+            animator.SetBool("move", isMoving);
+        }
+       
     }
 
+    
     public void HandleDash(InputAction.CallbackContext context)
     {
         if (context.performed && canDash)

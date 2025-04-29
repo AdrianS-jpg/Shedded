@@ -12,6 +12,7 @@ public class MaskToggle : MonoBehaviour
 
     static public bool isHiding;
     static public bool canHide;
+    public Animator animator;
 
     void Awake()
     {
@@ -59,8 +60,9 @@ public class MaskToggle : MonoBehaviour
             isHiding = true;
             canHide = false;
             gameObject.layer = 3;
+            animator.SetBool("hide", isHiding);
             Debug.Log("kas");
-            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            
         
 
         yield return new WaitForSeconds(hideDuration);
@@ -70,8 +72,9 @@ public class MaskToggle : MonoBehaviour
         isHiding = false;
         canHide = false;
         gameObject.layer = 8;
+        animator.SetBool ("hide", isHiding);
         Debug.Log("Stop hiding");
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+      
         yield return null;
     }
 }
