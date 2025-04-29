@@ -66,9 +66,6 @@ public class PlayerAttack : MonoBehaviour
                 touching[i].GetComponent<EnemyMovement>().damage();
             }
         }
-
-        
-
         yield return new WaitForSeconds(timeToAttack);
 
         attacking = false;
