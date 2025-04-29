@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class upgrade : MonoBehaviour
 {
     static public bool healthOnKillBool = false;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

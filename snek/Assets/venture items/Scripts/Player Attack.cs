@@ -29,12 +29,14 @@ public class PlayerAttack : MonoBehaviour
     [Header("Adrians bull")]
     static public List<GameObject> touching = new List<GameObject>();
     public LayerMask layers;
+    public Movement move;
 
    
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject;
         attackArea.SetActive(false);
+        move = GetComponent<Movement>();
     }
 
     private void Update()
@@ -67,11 +69,34 @@ public class PlayerAttack : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(timeToAttack);
-
         attacking = false;
         animator.SetBool("attacking", attacking);
         attackArea.SetActive(false);
         gameObject.GetComponent<Movement>().enabled = true;
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            move.ayy = true;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            move.dee = true;
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            move.ayy = false;
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            move.dee = false;
+        }
+        if (move.ayy == true && move.dee == false)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if (move.ayy == false && move.dee == true)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
         yield return new WaitForSeconds(timer);
         
         canAttack = true;
