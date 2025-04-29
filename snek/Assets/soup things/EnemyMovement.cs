@@ -68,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
         NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, 1);
         finalPosition3 = hit3.position;
         Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
-        while (Vector2.Distance(finalPosition, finalPosition3) <= 3)
+        while (Vector2.Distance(finalPosition, finalPosition3) >= 3)
         {
             randomDirection3 = Random.insideUnitSphere * walkRadius;
             randomDirection3 += transform.position;
