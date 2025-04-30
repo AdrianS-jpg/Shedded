@@ -2,6 +2,7 @@ using System.Buffers;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -44,9 +45,11 @@ public class EnemyMovement : MonoBehaviour
     public static GameObject GameObject;
     public float exe;
     public bool facingplayer;
+    public Vector3 player;
     
     private void Start()
     {
+        player = transform.position;
         exe = transform.position.x;
         GameObject = gameObject;
         hurtbox.enabled = true;
@@ -84,7 +87,7 @@ public class EnemyMovement : MonoBehaviour
         Debug.Log(transform.localPosition.x);
         Debug.Log(NavMesh.AllAreas);
         StartCoroutine(Run());
-        
+        StartCoroutine(resetposition());
     }
     void Update()
     {
@@ -411,6 +414,16 @@ public class EnemyMovement : MonoBehaviour
         StopCoroutine(attack());
 
        
+    }
+
+    IEnumerator resetposition()
+    {
+        yield return new WaitForSeconds(0.4f);
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        transform.position = player;
+        gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        StartCoroutine(Run());
+        yield break;
     }
 
     public void OnAttack(bool attacking)
