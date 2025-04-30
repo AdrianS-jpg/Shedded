@@ -634,11 +634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7307e5e276fe1024f9ab6c0dc3fc4fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &936605872 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4298839435987477000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
-  m_PrefabInstance: {fileID: 936605868}
-  m_PrefabAsset: {fileID: 0}
 --- !u!58 &936605873
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -688,7 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 936605873}
-  hurtbox: {fileID: 936605872}
+  hurtbox: {fileID: 0}
   boxeslol: {fileID: 11400000, guid: 73ce2de9f3c1ea448920384aad422a41, type: 2}
 --- !u!114 &936605875
 MonoBehaviour:
@@ -704,6 +699,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 1885275068}
   eM: {fileID: 0}
+  hit: {fileID: 0}
+  animator: {fileID: 0}
+  layers:
+    serializedVersion: 2
+    m_Bits: 0
+  move: {fileID: 0}
 --- !u!96 &936605876
 TrailRenderer:
   serializedVersion: 3
@@ -728,7 +729,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3378,21 +3379,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb4d1fcccbf13244b61e04f07649614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 0
   targ: {fileID: 936605869}
   self: {fileID: 1553375300}
   targdirection: {x: 0, y: 0}
-  seePlayer: 0
+  hitboxout: {fileID: 0}
   hitbox: {fileID: 1010335334}
   hurtbox: {fileID: 1553375305}
   boxeslol: {fileID: 11400000, guid: 73ce2de9f3c1ea448920384aad422a41, type: 2}
-  enemyHealth: 3
-  pH: {fileID: 0}
+  agent: {fileID: 0}
+  animator: {fileID: 0}
   attackCor: 0
   enemyKilled: 0
+  seePlayer: 0
+  distance: 0
+  enemyHealth: 3
+  pH: {fileID: 0}
+  walkRadius: 10
+  finalPosition: {x: 0, y: 0, z: 0}
+  finalPosition3: {x: 0, y: 0, z: 0}
   layer:
     serializedVersion: 2
     m_Bits: 512
+  exe: 0
+  facingplayer: 0
 --- !u!50 &1553375303
 Rigidbody2D:
   serializedVersion: 5

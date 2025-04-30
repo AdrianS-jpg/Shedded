@@ -42,12 +42,12 @@ public class PlayerHealth : MonoBehaviour
     //this is optimal i promise
     IEnumerator Damagei()
     {
-        GetComponent<SpriteRenderer>().color = Color.magenta;
+        //GetComponent<SpriteRenderer>().color = Color.magenta;
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<Movement>().movementSpeed = 0;
         GetComponent<Movement>().canDash = false;
         yield return new WaitForSeconds(1.5f);
-        GetComponent<SpriteRenderer>().color = Color.white;
+       // GetComponent<SpriteRenderer>().color = Color.white;
         GetComponent<CapsuleCollider2D>().enabled = true;
         GetComponent<Movement>().movementSpeed = 5;
         GetComponent<Movement>().canDash = true;
