@@ -81,15 +81,18 @@ public class EnemyMovement : MonoBehaviour
         }
         Debug.Log(finalPosition);
         Debug.Log(finalPosition3);
+        Debug.Log(transform.localPosition.x);
+        Debug.Log(NavMesh.AllAreas);
         StartCoroutine(Run());
+        
     }
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * 5;
-        verticalMove = Input.GetAxisRaw("Vertical") * 5;
-        _move = horizontalMove + verticalMove;
-        animator.SetFloat("Speed", Mathf.Abs(_move));
-        gameObject.transform.rotation = new Quaternion(0,0,0,0);
+        //horizontalMove = Input.GetAxisRaw("Horizontal") * 5;
+        //verticalMove = Input.GetAxisRaw("Vertical") * 5;
+        //_move = horizontalMove + verticalMove;
+        //animator.SetFloat("Speed", Mathf.Abs(_move));
+        //gameObject.transform.rotation = new Quaternion(0,0,0,0);
         targdirection = self.position - targ.position;
         ray = Physics2D.Raycast(transform.position, -targdirection, distance, ~layer);
         Debug.DrawRay(transform.position, - targdirection);
@@ -201,8 +204,10 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<NavMeshAgent>().angularSpeed = 30f;
         GetComponent<NavMeshAgent>().acceleration = 3f;
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        Debug.Log(transform.localPosition.x);
         while (seePlayer == false || facingplayer == false) 
-        { 
+        {
+            Debug.Log(transform.localPosition.x);
             if ((transform.position.x + 0.5 >= finalPosition.x && transform.position.x - 0.5 <= finalPosition.x) && (transform.position.y + 0.5 >= finalPosition.y && transform.position.y - 0.5 <= finalPosition.y))
             {
                 //ignore this if statement guys please
@@ -250,7 +255,7 @@ public class EnemyMovement : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
 
         }
-
+        Debug.Log(transform.localPosition.x);
         StartCoroutine(runthesecond());
         yield break;
     }
@@ -276,6 +281,7 @@ public class EnemyMovement : MonoBehaviour
         }
         //transform.position = new Vector3(transform.position.x + targdirection.x,transform.position.y + targdirection.y,0);
         agent.velocity = Vector3.zero;
+        Debug.Log(transform.localPosition.x);
         gameObject.transform.position = new Vector3(transform.position.x + targdirection.x, transform.position.y + targdirection.y, 0);
         yield return new WaitForSeconds(1f);
             if (seePlayer == true)
