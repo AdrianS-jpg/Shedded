@@ -15,10 +15,10 @@ MonoBehaviour:
   active: 1
   type:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.344
   response:
     m_OverrideState: 1
     m_Value: 0.8
@@ -169,7 +169,7 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2
   scatter:
     m_OverrideState: 1
     m_Value: 0.7
@@ -446,10 +446,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.502
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.14
   rounded:
     m_OverrideState: 1
     m_Value: 0
@@ -534,16 +534,16 @@ MonoBehaviour:
   active: 1
   normalBias:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 0.44
   viewBias:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 0.377
   scaleBiasWithMinProbeDistance:
     m_OverrideState: 1
     m_Value: 0
   samplingNoise:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 0.105
   animateSamplingNoise:
     m_OverrideState: 1
     m_Value: 1
@@ -718,7 +718,7 @@ MonoBehaviour:
     m_Value: 4
   chromaticAbberationIntensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0
 --- !u!114 &7356326380957709434
 MonoBehaviour:
   m_ObjectHideFlags: 3
