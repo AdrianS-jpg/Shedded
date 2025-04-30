@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      roadblock with handkerchief_0: -9149679903931534464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
