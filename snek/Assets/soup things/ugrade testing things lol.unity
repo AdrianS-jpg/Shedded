@@ -189,21 +189,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb4d1fcccbf13244b61e04f07649614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 0
   targ: {fileID: 968599073}
   self: {fileID: 21320257}
   targdirection: {x: 0, y: 0}
-  seePlayer: 0
+  hitboxout: {fileID: 0}
   hitbox: {fileID: 1963784320}
   hurtbox: {fileID: 21320261}
   boxeslol: {fileID: 11400000, guid: 73ce2de9f3c1ea448920384aad422a41, type: 2}
-  enemyHealth: 3
-  pH: {fileID: 0}
+  agent: {fileID: 0}
+  animator: {fileID: 0}
   attackCor: 0
   enemyKilled: 0
+  seePlayer: 0
+  distance: 0
+  enemyHealth: 3
+  pH: {fileID: 0}
+  walkRadius: 10
+  finalPosition: {x: 0, y: 0, z: 0}
+  finalPosition3: {x: 0, y: 0, z: 0}
   layer:
     serializedVersion: 2
     m_Bits: 512
+  exe: 0
+  facingplayer: 0
 --- !u!61 &21320261
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2988,7 +2996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 968599074}
-  hurtbox: {fileID: 968599085}
+  hurtbox: {fileID: 0}
   boxeslol: {fileID: 11400000, guid: 73ce2de9f3c1ea448920384aad422a41, type: 2}
 --- !u!96 &968599077
 TrailRenderer:
@@ -3014,7 +3022,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3106,22 +3114,6 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!114 &968599078 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6191826700535404109, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
-  m_PrefabInstance: {fileID: 1740470157}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968599072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49c00f8c2b101624b8508ee0f7e1d0ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!58 &968599079 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 316322937925345818, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
-  m_PrefabInstance: {fileID: 1740470157}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &968599082 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8295995460797516433, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
@@ -3133,11 +3125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7307e5e276fe1024f9ab6c0dc3fc4fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &968599085 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4298839435987477000, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
-  m_PrefabInstance: {fileID: 1740470157}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1304303982
 GameObject:
   m_ObjectHideFlags: 0
@@ -3582,7 +3569,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -3767,7 +3755,7 @@ PrefabInstance:
     - target: {fileID: 2576983796665016664, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: hitbox
       value: 
-      objectReference: {fileID: 968599079}
+      objectReference: {fileID: 0}
     - target: {fileID: 6047923966194369665, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_LocalScale.x
       value: 19.38
@@ -3999,7 +3987,7 @@ PrefabInstance:
     - target: {fileID: 8452086565832684617, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 968599078}
+      objectReference: {fileID: 0}
     - target: {fileID: 8452086565832684617, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4011,7 +3999,7 @@ PrefabInstance:
     - target: {fileID: 8452086565832684617, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 968599078}
+      objectReference: {fileID: 0}
     - target: {fileID: 8452086565832684617, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

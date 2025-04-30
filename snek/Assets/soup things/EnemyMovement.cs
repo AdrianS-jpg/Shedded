@@ -312,6 +312,7 @@ public class EnemyMovement : MonoBehaviour
         while (distance >= 1f && seePlayer == true)
         {
             agent.SetDestination(targ.position);
+            
             if (targdirection.x >= 0)
             {
                 hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);

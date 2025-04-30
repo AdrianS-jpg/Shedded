@@ -36423,6 +36423,10 @@ PrefabInstance:
       propertyPath: m_PreviewTimeScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1565453286692963143, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 2688958789037048345, guid: 723241232f6453c48b8ef7747f46f6e1, type: 3}
       propertyPath: m_Size.x
       value: 2.944
