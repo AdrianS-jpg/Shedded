@@ -419,10 +419,29 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator resetposition()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
         transform.position = player;
         gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, walkRadius, NavMesh.AllAreas);
+        finalPosition = hit.position;
+        Vector3 randomDirection3 = Random.insideUnitSphere * walkRadius;
+        randomDirection3 += transform.position;
+        NavMeshHit hit3;
+        NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, NavMesh.AllAreas);
+        finalPosition3 = hit3.position;
+        Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
+        while (Vector2.Distance(finalPosition, finalPosition3) <= 3)
+        {
+            randomDirection3 = Random.insideUnitSphere * walkRadius;
+            randomDirection3 += transform.position;
+            NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, NavMesh.AllAreas);
+            finalPosition3 = hit3.position;
+            Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
+        }
         StartCoroutine(Run());
         yield break;
     }
