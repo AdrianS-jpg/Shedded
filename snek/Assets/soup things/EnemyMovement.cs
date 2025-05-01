@@ -2,7 +2,6 @@ using System.Buffers;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -62,30 +61,6 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
-        Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
-        randomDirection += transform.position;
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, walkRadius, NavMesh.AllAreas);
-        finalPosition = hit.position;
-        Vector3 randomDirection3 = Random.insideUnitSphere * walkRadius;
-        randomDirection3 += transform.position;
-        NavMeshHit hit3;
-        NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, NavMesh.AllAreas);
-        finalPosition3 = hit3.position;
-        Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
-        while (Vector2.Distance(finalPosition, finalPosition3) <= 3)
-        {
-            randomDirection3 = Random.insideUnitSphere * walkRadius;
-            randomDirection3 += transform.position;
-            NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, NavMesh.AllAreas);
-            finalPosition3 = hit3.position;
-            Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
-        }
-        Debug.Log(finalPosition);
-        Debug.Log(finalPosition3);
-        Debug.Log(transform.localPosition.x);
-        Debug.Log(NavMesh.AllAreas);
         StartCoroutine(Run());
         StartCoroutine(resetposition());
     }
@@ -117,7 +92,6 @@ public class EnemyMovement : MonoBehaviour
             {
                 seePlayer = true;
             }
-            Debug.Log(seePlayer);
         } else
         {
             seePlayer = false ;
@@ -207,10 +181,8 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<NavMeshAgent>().angularSpeed = 30f;
         GetComponent<NavMeshAgent>().acceleration = 3f;
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        Debug.Log(transform.localPosition.x);
         while (seePlayer == false || facingplayer == false) 
         {
-            Debug.Log(transform.localPosition.x);
             if ((transform.position.x + 0.5 >= finalPosition.x && transform.position.x - 0.5 <= finalPosition.x) && (transform.position.y + 0.5 >= finalPosition.y && transform.position.y - 0.5 <= finalPosition.y))
             {
                 //ignore this if statement guys please
@@ -258,7 +230,6 @@ public class EnemyMovement : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
 
         }
-        Debug.Log(transform.localPosition.x);
         StartCoroutine(runthesecond());
         yield break;
     }
@@ -275,6 +246,8 @@ public class EnemyMovement : MonoBehaviour
         {
             MaskToggle.canHide = true;
             Debug.Log("Dead");
+            targ.GetComponent<MaskToggle>().hideDuration = 5;
+            MaskToggle.canHide = true;
             if (upgrade.healthOnKillBool == true)
             {
                 GetComponent<upgrade>().healthOnKillThing();
@@ -284,8 +257,13 @@ public class EnemyMovement : MonoBehaviour
         }
         //transform.position = new Vector3(transform.position.x + targdirection.x,transform.position.y + targdirection.y,0);
         agent.velocity = Vector3.zero;
-        Debug.Log(transform.localPosition.x);
-        gameObject.transform.position = new Vector3(transform.position.x + targdirection.x, transform.position.y + targdirection.y, 0);
+        Vector2 hitdirection = targdirection;
+        for (int i = 0; i < 4; i++)
+        {
+            gameObject.transform.position = new Vector3(transform.position.x + ((hitdirection.x / (4-i)) / 2), transform.position.y + ((hitdirection.y / (4-i)) / 2), 0);
+            yield return new WaitForSeconds(0.2f);
+        }
+
         yield return new WaitForSeconds(1f);
             if (seePlayer == true)
             {
@@ -332,7 +310,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 StartCoroutine(attack());
 
-                animator.SetBool("attacking", attackCor);
+                
 
                 yield break;
             }
@@ -399,12 +377,15 @@ public class EnemyMovement : MonoBehaviour
         
         for (int i = 0; i < 10; i++) 
         {
-            if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
+            if (PlayerHealth.isHit == false)
             {
-                targ.GetComponent<PlayerHealth>().Damage();
-                break;
+                if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
+                {
+                    targ.GetComponent<PlayerHealth>().Damage();
+                    break;
+                }
+                yield return new WaitForSeconds(0.02f);
             }
-            yield return new WaitForSeconds(0.02f);
         }
         attackCor = false;
         hitbox.enabled = false;
@@ -433,14 +414,12 @@ public class EnemyMovement : MonoBehaviour
         NavMeshHit hit3;
         NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, NavMesh.AllAreas);
         finalPosition3 = hit3.position;
-        Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
         while (Vector2.Distance(finalPosition, finalPosition3) <= 3)
         {
             randomDirection3 = Random.insideUnitSphere * walkRadius;
             randomDirection3 += transform.position;
             NavMesh.SamplePosition(randomDirection3, out hit3, walkRadius, NavMesh.AllAreas);
             finalPosition3 = hit3.position;
-            Debug.Log(Vector2.Distance(finalPosition, finalPosition3));
         }
         StartCoroutine(Run());
         yield break;

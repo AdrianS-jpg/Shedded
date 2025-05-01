@@ -52,37 +52,40 @@ public class Movement : MonoBehaviour
 
         _move = horizontalMove + verticalMove;
 
-       
+
 
         // put ani code above the if isDashing for it to run properly
 
-        if (isDashing)
-        {
-            return;
-        }
         if (Input.GetKeyDown(KeyCode.A))
         {
-           ayy = true;
+            ayy = true;
         }
-        if (Input.GetKeyDown(KeyCode.D))
-        { 
-           dee = true;
-        }
-        if (Input.GetKeyUp(KeyCode.A))
+        else
         {
-           ayy = false;
+            ayy = false;
         }
-        if (Input.GetKeyUp(KeyCode.D))
-        { 
-           dee = false;
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            dee = true;
+        }
+        else
+        {
+            dee = false;
         }
         if (ayy == true && dee == false)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        } else if (ayy == false && dee == true)
+        }
+        else if (ayy == false && dee == true)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
+        if (isDashing)
+        {
+            return;
+        }
+
     }
 
     public void HandleMovement(InputAction.CallbackContext context)

@@ -12,8 +12,8 @@ using UnityEngine.Rendering;
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Bools")]
-    private bool attacking = false;
-    private bool canAttack = true;
+    public bool attacking = false;
+    public bool canAttack = true;
 
     [Header("Numbers")]
     private float timeToAttack = 0.5f;
@@ -60,17 +60,23 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("attacking", attacking);
         canAttack = false;
         attackArea.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        if (touching.Count > 0)
+        yield return new WaitForSeconds(0.2f);
+        List<GameObject> FINE = touching;
+        for (int i = 0; i < 20; i++)
         {
-            for (int i = 0; i < touching.Count; i++)
+            if (FINE.Count > 0)
             {
-                touching[i].GetComponent<EnemyMovement>().damage();
+                for (int j = 0; j < FINE.Count; j++)
+                {
+                        FINE[j].GetComponent<EnemyMovement>().damage();
+                    
+                }
             }
+            yield return new WaitForSeconds(0.01f);
         }
-        yield return new WaitForSeconds(timeToAttack);
+        yield return new WaitForSeconds(0.1f);
         attacking = false;
-        animator.SetBool("attacking", attacking);
+        animator.SetBool("attacking", false);
         attackArea.SetActive(false);
         gameObject.GetComponent<Movement>().enabled = true;
         if (Input.GetKeyDown(KeyCode.A))
