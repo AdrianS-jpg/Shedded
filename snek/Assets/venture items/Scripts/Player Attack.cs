@@ -71,6 +71,7 @@ public class PlayerAttack : MonoBehaviour
                     if (FINE[j] != null)
                     {
                         FINE[j].GetComponent<EnemyMovement>().damage();
+                        
                     }
                     else
                     {
@@ -84,7 +85,9 @@ public class PlayerAttack : MonoBehaviour
             }
             Debug.Log("hs");
             yield return new WaitForSeconds(0.01f);
+            
         }
+        touching.Clear();
         yield return new WaitForSeconds(0.1f);
         attacking = false;
         attackArea.SetActive(false);
