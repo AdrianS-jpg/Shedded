@@ -61,17 +61,16 @@ public class PlayerAttack : MonoBehaviour
         canAttack = false;
         attackArea.SetActive(true);
         yield return new WaitForSeconds(0.2f);
-        List<GameObject> FINE = touching;
         for (int i = 1; i <= 20; i++)
         {
-            if (FINE.Count > 0)
+            if (touching.Count > 0)
             {
-                for (int j = 0; j < FINE.Count; j++)
+                for (int j = 0; j < touching.Count; j++)
                 {
-                    if (FINE[j] != null)
+                    if (touching[j] != null)
                     {
-                        FINE[j].GetComponent<EnemyMovement>().damage();
-                        
+                        touching[j].GetComponent<EnemyMovement>().damage();
+                        touching.Clear();
                     }
                     else
                     {
@@ -87,7 +86,7 @@ public class PlayerAttack : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
             
         }
-        touching.Clear();
+        
         yield return new WaitForSeconds(0.1f);
         attacking = false;
         attackArea.SetActive(false);

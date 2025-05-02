@@ -79,7 +79,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (attackCor == false)
             {
-                if (ray.collider.gameObject != null)
+                if (ray.collider != null)
                 {
                     if (ray.collider.gameObject.layer == 8)
                     {
