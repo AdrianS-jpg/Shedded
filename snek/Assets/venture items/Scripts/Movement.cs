@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -32,6 +33,11 @@ public class Movement : MonoBehaviour
 
     public bool dee;
     public bool ayy;
+
+    [Header("Pause Menu")]
+    public static bool GameIsPaused = false;
+    public GameObject PauseUI;
+
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -114,6 +120,24 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public void HandleMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause(); 
+            }
+            
+        }
+       
+        
+    }
+
     private IEnumerator DashCoroutine()
     {
         Physics2D.IgnoreLayerCollision(3, 8, true);
@@ -141,5 +165,19 @@ public class Movement : MonoBehaviour
         canDash = true;
 
        
+    }
+
+    void Resume()
+    {
+        GameIsPaused = false;
+        PauseUI.SetActive(false);
+        Time.timeScale = 1f;   
+    }
+
+    void Pause()
+    {
+        GameIsPaused = true;
+        PauseUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

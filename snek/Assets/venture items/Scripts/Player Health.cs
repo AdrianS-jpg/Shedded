@@ -82,10 +82,10 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator Damagei()
     {
 
-        //GetComponent<SpriteRenderer>().color = Color.red;
-        //yield return new WaitForSeconds(0.5f);
-        //GetComponent<SpriteRenderer>().color = Color.white;
-        //yield return null; 
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return null;
 
         animator.SetBool("attacking", false);
         GetComponent<Movement>().canDash = false;
