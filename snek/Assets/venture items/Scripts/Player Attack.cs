@@ -57,26 +57,36 @@ public class PlayerAttack : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
         gameObject.GetComponent<Movement>().enabled = false;
         attacking = true;
-        animator.SetBool("attacking", attacking);
+        animator.SetTrigger("attack");
         canAttack = false;
         attackArea.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         List<GameObject> FINE = touching;
-        for (int i = 0; i < 20; i++)
+        for (int i = 1; i <= 20; i++)
         {
             if (FINE.Count > 0)
             {
                 for (int j = 0; j < FINE.Count; j++)
                 {
+                    if (FINE[j] != null)
+                    {
                         FINE[j].GetComponent<EnemyMovement>().damage();
+                    }
+                    else
+                    {
+                        touching.RemoveAll(EnemyMovement.ifGameObject);
+                        Debug.Log("kill me");
+                    }
                     
                 }
+                yield return new WaitForSeconds((20 - i) * 0.01f);
+                break;
             }
+            Debug.Log("hs");
             yield return new WaitForSeconds(0.01f);
         }
         yield return new WaitForSeconds(0.1f);
         attacking = false;
-        animator.SetBool("attacking", false);
         attackArea.SetActive(false);
         gameObject.GetComponent<Movement>().enabled = true;
         if (Input.GetKeyDown(KeyCode.A))

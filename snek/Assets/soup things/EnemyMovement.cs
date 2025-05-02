@@ -79,13 +79,16 @@ public class EnemyMovement : MonoBehaviour
         {
             if (attackCor == false)
             {
-                if (ray.collider.gameObject.layer == 8)
+                if (ray.collider.gameObject != null)
                 {
-                    seePlayer = true;
-                }
-                else
-                {
-                    seePlayer = false;
+                    if (ray.collider.gameObject.layer == 8)
+                    {
+                        seePlayer = true;
+                    }
+                    else
+                    {
+                        seePlayer = false;
+                    }
                 }
             }
             else
