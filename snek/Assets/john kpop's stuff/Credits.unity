@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 370268525}
   - component: {fileID: 370268527}
   - component: {fileID: 370268526}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Faith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,8 +368,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -264, y: 200}
-  m_SizeDelta: {x: 440, y: 50}
+  m_AnchoredPosition: {x: -240, y: 192}
+  m_SizeDelta: {x: 440, y: 48.6646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &370268526
 MonoBehaviour:
@@ -418,8 +418,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -736,8 +736,8 @@ Transform:
   m_GameObject: {fileID: 1186100615}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -178.65, y: 176.2433, z: 0}
-  m_LocalScale: {x: 45.23785, y: 33.82448, z: 50.699997}
+  m_LocalPosition: {x: -178.65, y: 166.2276, z: 0}
+  m_LocalScale: {x: 45.23785, y: 38.986095, z: 50.699997}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024561715}
@@ -1145,8 +1145,8 @@ Canvas:
   m_GameObject: {fileID: 1985656672}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1525046165}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1250,8 +1250,8 @@ Canvas:
   m_GameObject: {fileID: 2024561714}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1525046165}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
