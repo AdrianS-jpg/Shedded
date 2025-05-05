@@ -45,7 +45,8 @@ public class EnemyMovement : MonoBehaviour
     public float exe;
     public bool facingplayer;
     public Vector3 player;
-    
+    public GameObject mark;
+
     private void Start()
     {
         player = transform.position;
@@ -171,6 +172,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator Run() //(a)
     {
+        mark.GetComponent<SpriteRenderer>().enabled = false;
         if (gameObject.GetComponent<NavMeshAgent>().enabled == true)
         {
             agent.SetDestination(finalPosition3);
@@ -242,7 +244,8 @@ public class EnemyMovement : MonoBehaviour
         //put stun code here ig
         //dont look at me man i have zero creativity
         
-        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        animator.speed = 0f;
         Debug.Log("fire");
         enemyHealth -= 1;
         if (enemyHealth == 0)
@@ -278,6 +281,8 @@ public class EnemyMovement : MonoBehaviour
             }
         yield return new WaitForSeconds(0.5f);
         hurtbox.enabled = true;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        animator.speed = 1f;
         yield break;
     }
 
@@ -289,7 +294,7 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<NavMeshAgent>().angularSpeed = 120f;
         GetComponent<NavMeshAgent>().acceleration = 8f;
 
-        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        mark.GetComponent<SpriteRenderer>().enabled = true;
         while (distance >= 1f && seePlayer == true)
         {
             agent.SetDestination(targ.position);
@@ -326,7 +331,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator meow()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         for (int i = 0; i < 10; i++) {
             agent.SetDestination(targ.position);
             //if (targdirection.x >= 0)
@@ -371,7 +376,6 @@ public class EnemyMovement : MonoBehaviour
         //    GetComponent<SpriteRenderer>().flipX = true;
         //}
         attackCor = true;
-        GetComponent<SpriteRenderer>().color = Color.yellow;
         agent.SetDestination(targ.position);
         hitbox.enabled = true;
         yield return new WaitForSeconds(0.3f);
@@ -385,11 +389,12 @@ public class EnemyMovement : MonoBehaviour
                 if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
                 {
                     targ.GetComponent<PlayerHealth>().Damage();
-                    break;
+                    hitbox.enabled = false;
                 }
                 yield return new WaitForSeconds(0.02f);
             }
         }
+   
         attackCor = false;
         hitbox.enabled = false;
         yield return new WaitForSeconds(0.2f);

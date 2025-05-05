@@ -136,63 +136,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 491
-        width: 451
-        height: 164
+        y: 490
+        width: 585
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: bbb746972e0edab90800000000000000
       internalID: -7228874563555918917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: health.bar grey_1
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 548
-        width: 159
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f2e0a48c4098a80c0800000000000000
-      internalID: -4572691818008146385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: health.bar grey_2
-      rect:
-        serializedVersion: 2
-        x: 563
-        y: 548
-        width: 167
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b31c1c97ea55925d0800000000000000
-      internalID: -3086841861730352837
       vertices: []
       indices: 
       edges: []
@@ -201,7 +157,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fca92b0363715464d85d3a331d9b2b65
     internalID: 0
     vertices: []
     indices: 

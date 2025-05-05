@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] 
-    static public int maxHealth = 5;
+    static public int maxHealth = 6;
     static public int health;
     static public bool isHit = false;
     public Animator animator;
