@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 502204512}
   - component: {fileID: 502204511}
   m_Layer: 5
-  m_Name: Left Arrow (1)
+  m_Name: Left Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -551,7 +551,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 502204512}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1985656677}
+        m_TargetAssemblyTypeName: FaithCredits, Assembly-CSharp
+        m_MethodName: OnLeftArrowButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &502204512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +683,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 588467444}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1985656677}
+        m_TargetAssemblyTypeName: FaithCredits, Assembly-CSharp
+        m_MethodName: OnRightArrowButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &588467444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,7 +1060,7 @@ GameObject:
   - component: {fileID: 1567985882}
   - component: {fileID: 1567985881}
   m_Layer: 0
-  m_Name: Exit Button
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1104,7 +1128,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1567985882}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2024561719}
+        m_TargetAssemblyTypeName: FaithCredits, Assembly-CSharp
+        m_MethodName: OnExitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1567985882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,6 +1191,7 @@ GameObject:
   - component: {fileID: 1985656676}
   - component: {fileID: 1985656675}
   - component: {fileID: 1985656674}
+  - component: {fileID: 1985656677}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1246,6 +1283,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1985656677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985656672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c49ce5d9d3d2544829601bc1c9976d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2024561714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1307,7 @@ GameObject:
   - component: {fileID: 2024561718}
   - component: {fileID: 2024561717}
   - component: {fileID: 2024561716}
+  - component: {fileID: 2024561719}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1352,6 +1402,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2024561719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024561714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c49ce5d9d3d2544829601bc1c9976d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

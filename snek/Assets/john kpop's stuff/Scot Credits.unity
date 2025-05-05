@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 130476460}
   - component: {fileID: 130476459}
   m_Layer: 0
-  m_Name: Exit Button (3)
+  m_Name: 'Exit '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 130476460}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1359951482}
+        m_TargetAssemblyTypeName: ScotCredits, Assembly-CSharp
+        m_MethodName: OnExitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &130476460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +487,7 @@ GameObject:
   - component: {fileID: 563439569}
   - component: {fileID: 563439568}
   m_Layer: 5
-  m_Name: Right Arrow (3)
+  m_Name: Right Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,7 +555,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 563439569}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1359951482}
+        m_TargetAssemblyTypeName: ScotCredits, Assembly-CSharp
+        m_MethodName: OnRightArrowButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &563439569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +842,7 @@ GameObject:
   - component: {fileID: 783460370}
   - component: {fileID: 783460369}
   m_Layer: 5
-  m_Name: Left Arrow (4)
+  m_Name: 'Left Arrow '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -886,7 +910,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 783460370}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1359951482}
+        m_TargetAssemblyTypeName: ScotCredits, Assembly-CSharp
+        m_MethodName: OnLeftArrowButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &783460370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,6 +1190,7 @@ GameObject:
   - component: {fileID: 1359951481}
   - component: {fileID: 1359951480}
   - component: {fileID: 1359951479}
+  - component: {fileID: 1359951482}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1250,6 +1287,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1359951482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359951477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26dfafdf7e9e6334a947dd22d3b0a1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/john kpop's stuff/Title Screen.unity
     guid: 9b991be07b5c78844a153850654294b8
   - enabled: 0
@@ -20,8 +20,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/soup things/Main Menu.unity
     guid: a2271a5c24e0d99499d657bf661b64b6
-  - enabled: 0
-    path: Assets/john kpop's stuff/Credits.unity
+  - enabled: 1
+    path: Assets/john kpop's stuff/Faith Credits.unity
     guid: 05247f27e2e7d9a49aa8224159fedb41
   - enabled: 0
     path: Assets/john kpop's stuff/Win screen.unity
@@ -35,6 +35,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/soup things/tut.unity
     guid: 94284f5df8721814c9d304e4e8a98fe7
+  - enabled: 1
+    path: Assets/john kpop's stuff/Cerese Credits.unity
+    guid: 91f4dda860dd8f344b97193f735c5b81
+  - enabled: 1
+    path: Assets/john kpop's stuff/Ember Credits.unity
+    guid: acefd8a03bfb4bf44804062ef2f11e0a
+  - enabled: 1
+    path: Assets/john kpop's stuff/Scot Credits.unity
+    guid: 5dd8dccb5d7a14a4fa7dd070b0922133
+  - enabled: 1
+    path: Assets/john kpop's stuff/Adrian Credits.unity
+    guid: 184dae82aa6c07d478f0633073ad6179
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 7d4cc7c11ce4b114c8545ea74d1b58e3, type: 3}
   m_UseUCBPForAssetBundles: 0

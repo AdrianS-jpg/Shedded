@@ -12,7 +12,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     public void OnCreditsButton ()
     {
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("Cerese Credits");
     }
 
     public void OnQuitButton ()
