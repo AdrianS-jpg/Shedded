@@ -13,6 +13,9 @@ public class MaskToggle : MonoBehaviour
     static public bool isHiding;
     static public bool canHide;
     public Animator animator;
+    public GameObject mask;
+    public Sprite vers;
+    public Sprite redvers;
 
     void Awake()
     {
@@ -37,6 +40,11 @@ public class MaskToggle : MonoBehaviour
             hideDuration = 5f;
             canHide = true;
         }
+        if (canHide == true) {
+            mask.GetComponent<SpriteRenderer>().sprite = vers;
+        } else {
+            mask.GetComponent<SpriteRenderer>().sprite = redvers;
+        }
 
        // The update will always check to see if an enemy has been killed to reset the timer
     }
@@ -47,6 +55,7 @@ public class MaskToggle : MonoBehaviour
         {
             StartCoroutine(Mask());
             Debug.Log("Pressed E");
+            
         }
     }
 

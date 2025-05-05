@@ -136,63 +136,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 491
-        width: 451
-        height: 164
+        y: 490
+        width: 585
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: fb532666c7cbef4a0800000000000000
       internalID: -6557596764925184577
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: health.bar green_1
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 548
-        width: 159
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2b2577a26ed0a58a0800000000000000
-      internalID: -6315720245227597134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: health.bar green_2
-      rect:
-        serializedVersion: 2
-        x: 563
-        y: 548
-        width: 167
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b027b56ba767c7cc0800000000000000
-      internalID: -3711961723442597365
       vertices: []
       indices: 
       edges: []
@@ -201,7 +157,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -210,7 +166,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      health.bar green_0: -6557596764925184577
+      health.bar green_1: -6315720245227597134
+      health.bar green_2: -3711961723442597365
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

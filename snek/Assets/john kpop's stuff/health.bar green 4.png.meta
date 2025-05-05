@@ -133,41 +133,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 491
-        width: 451
-        height: 164
+        y: 490
+        width: 585
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 05336046460cf8150800000000000000
       internalID: 5877127576149177168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: health.bar green 4_1
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 548
-        width: 159
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d1644596a5cb654b0800000000000000
-      internalID: -5451963202385197539
       vertices: []
       indices: 
       edges: []
@@ -176,7 +154,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c2015290cdb834d418787a03989428ec
     internalID: 0
     vertices: []
     indices: 
@@ -185,7 +163,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      health.bar green 4_0: 5877127576149177168
+      health.bar green 4_1: -5451963202385197539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
