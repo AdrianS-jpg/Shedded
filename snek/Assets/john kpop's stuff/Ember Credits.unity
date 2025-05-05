@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 236970363}
   - component: {fileID: 236970362}
   m_Layer: 0
-  m_Name: Exit Button (1)
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,7 +336,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 236970363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 818680229}
+        m_TargetAssemblyTypeName: EmberCredits, Assembly-CSharp
+        m_MethodName: OnExitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &236970363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +535,7 @@ GameObject:
   - component: {fileID: 818680228}
   - component: {fileID: 818680227}
   - component: {fileID: 818680226}
+  - component: {fileID: 818680229}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -619,6 +632,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &818680229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818680224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f5fe97ca44b4c4894212ab3a144d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832125010
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +795,7 @@ GameObject:
   - component: {fileID: 1226001482}
   - component: {fileID: 1226001481}
   m_Layer: 5
-  m_Name: Right Arrow (1)
+  m_Name: Right Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -838,7 +863,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1226001482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 818680229}
+        m_TargetAssemblyTypeName: EmberCredits, Assembly-CSharp
+        m_MethodName: OnRightArrowButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1226001482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,7 +1014,7 @@ GameObject:
   - component: {fileID: 1558423061}
   - component: {fileID: 1558423060}
   m_Layer: 5
-  m_Name: Left Arrow (2)
+  m_Name: Left Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1045,7 +1082,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1558423061}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 818680229}
+        m_TargetAssemblyTypeName: EmberCredits, Assembly-CSharp
+        m_MethodName: OnLeftArrowButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1558423061
 MonoBehaviour:
   m_ObjectHideFlags: 0
