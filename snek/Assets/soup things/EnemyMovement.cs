@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
     public bool facingplayer;
     public Vector3 player;
     public GameObject mark;
-
+    
     private void Start()
     {
         player = transform.position;
@@ -78,23 +78,28 @@ public class EnemyMovement : MonoBehaviour
         animator.SetBool("moveing", true);
         if (MaskToggle.isHiding == false)
         {
-            if (attackCor == false)
+            if (seePlayer == false)
             {
-                if (ray.collider != null)
+
+
+                if (attackCor == false)
                 {
-                    if (ray.collider.gameObject.layer == 8)
+                    if (ray.collider != null)
                     {
-                        seePlayer = true;
-                    }
-                    else
-                    {
-                        seePlayer = false;
+                        if (ray.collider.gameObject.layer == 8)
+                        {
+                            seePlayer = true;
+                        }
+                        else
+                        {
+                            seePlayer = false;
+                        }
                     }
                 }
-            }
-            else
-            {
-                seePlayer = true;
+                else
+                {
+                    seePlayer = true;
+                }
             }
         } else
         {
@@ -106,19 +111,18 @@ public class EnemyMovement : MonoBehaviour
         {
             if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
             {
-                Debug.Log("hit");
               
             }
         }
-        if (hurtbox.IsTouching(PlayerAttack.attackArea.GetComponent<PolygonCollider2D>()))
+        if (hurtbox.IsTouching(PlayerAttack.attackArea.GetComponent<PolygonCollider2D>()) == true)
         {
-            if (PlayerAttack.touching.Contains(gameObject) != true)
+            if (targ.GetComponent<PlayerAttack>().touching.Contains(gameObject) != true)
             {
-                PlayerAttack.touching.Add(gameObject);
+                targ.GetComponent<PlayerAttack>().touching.Add(gameObject);
             }
         } else
         {
-            PlayerAttack.touching.RemoveAll(ifGameObject);
+            targ.GetComponent<PlayerAttack>().touching.Remove(gameObject);
         }
         //if (targdirection.x <= 0)
         //{
@@ -159,12 +163,11 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public void damage() {
-        Debug.Log("helpme");
         StopAllCoroutines();
         agent.ResetPath();
         hitbox.enabled = false;
         hurtbox.enabled = false;
-        PlayerAttack.touching.RemoveAll(ifGameObject);
+        targ.GetComponent<PlayerAttack>().touching.Remove(GameObject);
         StartCoroutine(dam());
     }
 
@@ -185,6 +188,7 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<NavMeshAgent>().speed = 1f;
         GetComponent<NavMeshAgent>().angularSpeed = 30f;
         GetComponent<NavMeshAgent>().acceleration = 3f;
+        GetComponent<NavMeshAgent>().stoppingDistance = 1f;
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         while (seePlayer == false || facingplayer == false) 
         {
@@ -246,12 +250,10 @@ public class EnemyMovement : MonoBehaviour
         
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         animator.speed = 0f;
-        Debug.Log("fire");
         enemyHealth -= 1;
         if (enemyHealth == 0)
         {
             MaskToggle.canHide = true;
-            Debug.Log("Dead");
             targ.GetComponent<MaskToggle>().hideDuration = 5;
             MaskToggle.canHide = true;
             if (upgrade.healthOnKillBool == true)
@@ -267,11 +269,12 @@ public class EnemyMovement : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             gameObject.transform.position = new Vector3(transform.position.x + ((hitdirection.x / (4-i)) / 2), transform.position.y + ((hitdirection.y / (4-i)) / 2), 0);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
 
-        yield return new WaitForSeconds(1f);
-            if (seePlayer == true)
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        if (seePlayer == true)
             {
                 StartCoroutine(runthesecond());
             }
@@ -290,9 +293,10 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.SetDestination(finalPosition3);
         GetComponent<NavMeshAgent>().autoBraking = false;
-        GetComponent<NavMeshAgent>().speed = 7f;
+        GetComponent<NavMeshAgent>().speed = 9f;
         GetComponent<NavMeshAgent>().angularSpeed = 120f;
-        GetComponent<NavMeshAgent>().acceleration = 8f;
+        GetComponent<NavMeshAgent>().acceleration = 12f;
+        GetComponent<NavMeshAgent>().stoppingDistance = 0f;
 
         mark.GetComponent<SpriteRenderer>().enabled = true;
         while (distance >= 1f && seePlayer == true)
@@ -309,7 +313,7 @@ public class EnemyMovement : MonoBehaviour
                 hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
                 GetComponent<SpriteRenderer>().flipX = true;
             }
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.01f);
             // Debug.Log("aaaaaaa");
             
 
@@ -324,7 +328,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (seePlayer == false)
             {
-                StartCoroutine(meow());
+                //StartCoroutine(meow());
             }
 
     }
@@ -382,7 +386,7 @@ public class EnemyMovement : MonoBehaviour
         
         
         
-        for (int i = 0; i < 10; i++) 
+        for (int i = 0; i < 20; i++) 
         {
             if (PlayerHealth.isHit == false)
             {
@@ -391,14 +395,15 @@ public class EnemyMovement : MonoBehaviour
                     targ.GetComponent<PlayerHealth>().Damage();
                     hitbox.enabled = false;
                 }
-                yield return new WaitForSeconds(0.02f);
+               
+                
             }
+            agent.SetDestination(targ.position);
+            yield return new WaitForSeconds(0.01f);
         }
-   
+        agent.SetDestination(targ.position);
         attackCor = false;
         hitbox.enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        GetComponent<SpriteRenderer>().color = Color.white;
 
         StartCoroutine(runthesecond());
         StopCoroutine(attack());

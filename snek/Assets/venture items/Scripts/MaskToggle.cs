@@ -70,7 +70,6 @@ public class MaskToggle : MonoBehaviour
             canHide = false;
             gameObject.layer = 3;
             animator.SetBool("hide", isHiding);
-            Debug.Log("kas");
             
         
 

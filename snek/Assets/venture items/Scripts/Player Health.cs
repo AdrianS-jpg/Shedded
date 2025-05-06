@@ -59,7 +59,6 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= 1;
         StartCoroutine(Damagei());
-        Debug.Log("AHHHHHHHHHHHHHHHHHHHHHHHHHH");
     }
 
     private void OnDestroy()
@@ -83,18 +82,34 @@ public class PlayerHealth : MonoBehaviour
     {
 
         GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<SpriteRenderer>().color = Color.white;
-        yield return null;
-
+        //yield return new WaitForSeconds(0.5f);
+        //GetComponent<SpriteRenderer>().color = Color.white;
+        //yield return null;
+        StartCoroutine(Flashing());
         animator.SetBool("attacking", false);
         GetComponent<Movement>().canDash = false;
         isHit = true;
         gameObject.GetComponent<Movement>().enabled = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         isHit = false;
         GetComponent<Movement>().movementSpeed = 5;
         GetComponent<Movement>().canDash = true;
+        yield break;
+    }
+
+    IEnumerator Flashing()
+    {
+        for (int i = 0; i <= 15; i++)
+        {
+            if (GetComponent<SpriteRenderer>().color == Color.red) 
+            {
+                GetComponent<SpriteRenderer>().color = Color.white;
+            } else {
+                GetComponent<SpriteRenderer>().color = Color.red;
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+        GetComponent<SpriteRenderer>().color = Color.white;
         yield break;
     }
 

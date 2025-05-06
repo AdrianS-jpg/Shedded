@@ -27,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
     public Animator animator; 
     
     [Header("Adrians bull")]
-    static public List<GameObject> touching = new List<GameObject>();
+    public List<GameObject> touching = new List<GameObject>();
     public LayerMask layers;
     public Movement move;
 
@@ -67,10 +67,10 @@ public class PlayerAttack : MonoBehaviour
             {
                 for (int j = 0; j < touching.Count; j++)
                 {
-                    if (touching[j] != null)
+                    if (touching[0] != null)
                     {
-                        touching[j].GetComponent<EnemyMovement>().damage();
-                        touching.Clear();
+                        touching[0].GetComponent<EnemyMovement>().damage();
+                        touching.Remove(touching[0]);
                     }
                     else
                     {
@@ -80,9 +80,9 @@ public class PlayerAttack : MonoBehaviour
                     
                 }
                 yield return new WaitForSeconds((20 - i) * 0.01f);
-                break;
+                //Debug.Log(i);
+                i = 20;
             }
-            Debug.Log("hs");
             yield return new WaitForSeconds(0.01f);
             
         }
