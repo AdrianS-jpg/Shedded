@@ -2,10 +2,11 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class healthChnage : MonoBehaviour
 {
-    public List<Sprite> healths = new List<Sprite>() {};
+    public List<Sprite> healths = new List<Sprite>();
     public GameObject healthBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
