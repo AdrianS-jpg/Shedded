@@ -37,9 +37,6 @@ public class EnemyMovement : MonoBehaviour
     public int walkRadius = 10;
     public Vector3 finalPosition;
     public Vector3 finalPosition3;
-    float horizontalMove = 0f;
-    float verticalMove = 0f;
-    float _move = 0f;
     public LayerMask layer;
     public static GameObject GameObject;
     public float exe;
@@ -67,21 +64,12 @@ public class EnemyMovement : MonoBehaviour
     }
     void Update()
     {
-        //horizontalMove = Input.GetAxisRaw("Horizontal") * 5;
-        //verticalMove = Input.GetAxisRaw("Vertical") * 5;
-        //_move = horizontalMove + verticalMove;
-        //animator.SetFloat("Speed", Mathf.Abs(_move));
-        //gameObject.transform.rotation = new Quaternion(0,0,0,0);
         targdirection = self.position - targ.position;
         ray = Physics2D.Raycast(transform.position, -targdirection, distance, ~layer);
         Debug.DrawRay(transform.position, - targdirection);
         animator.SetBool("moveing", true);
         if (MaskToggle.isHiding == false)
         {
-            if (seePlayer == false)
-            {
-
-
                 if (attackCor == false)
                 {
                     if (ray.collider != null)
@@ -100,7 +88,6 @@ public class EnemyMovement : MonoBehaviour
                 {
                     seePlayer = true;
                 }
-            }
         } else
         {
             seePlayer = false ;
@@ -124,37 +111,6 @@ public class EnemyMovement : MonoBehaviour
         {
             targ.GetComponent<PlayerAttack>().touching.Remove(gameObject);
         }
-        //if (targdirection.x <= 0)
-        //{
-        //    if (GetComponent<SpriteRenderer>().flipX == false)
-        //    {
-        //        facingplayer = false;
-        //    }
-        //    else
-        //    {
-        //        facingplayer = true;
-        //    }
-        //} else
-        //{
-        //    if (GetComponent<SpriteRenderer>().flipX == true)
-        //    {
-        //        facingplayer = false;
-        //    }
-        //    else
-        //    {
-        //        facingplayer = true;
-        //    }
-        //}
-        //if (exe > transform.position.x)
-        //{
-        //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
-        //    GetComponent<SpriteRenderer>().flipX = false;
-        //}
-        //else
-        //{
-        //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
-        //    GetComponent<SpriteRenderer>().flipX = true;
-        //}
     }
 
     public static bool ifGameObject(GameObject thing)
@@ -171,9 +127,9 @@ public class EnemyMovement : MonoBehaviour
         StartCoroutine(dam());
     }
 
-    //coroutine hell V
+    
 
-    IEnumerator Run() //(a)
+    IEnumerator Run() 
     {
         mark.GetComponent<SpriteRenderer>().enabled = false;
         if (gameObject.GetComponent<NavMeshAgent>().enabled == true)
@@ -194,8 +150,6 @@ public class EnemyMovement : MonoBehaviour
         {
             if ((transform.position.x + 0.5 >= finalPosition.x && transform.position.x - 0.5 <= finalPosition.x) && (transform.position.y + 0.5 >= finalPosition.y && transform.position.y - 0.5 <= finalPosition.y))
             {
-                //ignore this if statement guys please
-                //there was no other way to do it i promise you gotta trust 
                 agent.SetDestination(finalPosition3);
             } else if ((transform.position.x + 0.5 >= finalPosition3.x && transform.position.x - 0.5 <= finalPosition3.x) && (transform.position.y + 0.5 >= finalPosition3.y && transform.position.y - 0.5 <= finalPosition3.y))
             {
@@ -245,8 +199,6 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator dam()
     {
-        //put stun code here ig
-        //dont look at me man i have zero creativity
         
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         animator.speed = 0f;
@@ -263,7 +215,6 @@ public class EnemyMovement : MonoBehaviour
             Destroy(gameObject);
             
         }
-        //transform.position = new Vector3(transform.position.x + targdirection.x,transform.position.y + targdirection.y,0);
         agent.velocity = Vector3.zero;
         Vector2 hitdirection = targdirection;
         for (int i = 0; i < 4; i++)
@@ -289,7 +240,7 @@ public class EnemyMovement : MonoBehaviour
         yield break;
     }
 
-    IEnumerator runthesecond() //(a)
+    IEnumerator runthesecond() 
     {
         agent.SetDestination(finalPosition3);
         GetComponent<NavMeshAgent>().autoBraking = false;
@@ -314,7 +265,6 @@ public class EnemyMovement : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipX = true;
             }
             yield return new WaitForSeconds(0.01f);
-            // Debug.Log("aaaaaaa");
             
 
         }
@@ -328,26 +278,15 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (seePlayer == false)
             {
-                //StartCoroutine(meow());
+                StartCoroutine(meow());
             }
 
     }
 
     IEnumerator meow()
     {
-        //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         for (int i = 0; i < 10; i++) {
             agent.SetDestination(targ.position);
-            //if (targdirection.x >= 0)
-            //{
-            //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
-            //    GetComponent<SpriteRenderer>().flipX = false;
-            //}
-            //else
-            //{
-            //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
-            //    GetComponent<SpriteRenderer>().flipX = true;
-            //}
             yield return new WaitForSeconds(0.1f);
 
             if (seePlayer == true) {
@@ -369,16 +308,6 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator attack()
     {
         animator.SetTrigger("attack");
-        //if (targdirection.x >= 0)
-        //{
-        //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 0);
-        //    GetComponent<SpriteRenderer>().flipX = false;
-        //}
-        //else
-        //{
-        //    hitboxout.transform.rotation = Quaternion.Euler(1, 1, 180);
-        //    GetComponent<SpriteRenderer>().flipX = true;
-        //}
         attackCor = true;
         agent.SetDestination(targ.position);
         hitbox.enabled = true;
@@ -440,20 +369,9 @@ public class EnemyMovement : MonoBehaviour
 
     public void OnAttack(bool attacking)
     {
-        animator.SetBool("attacking", attackCor);
+        animator.SetBool("attacking", attackCor); 
     }
-    //new thing lol 
-    //coroutine? (no idea how to spell that)
-    //when close enough
-    //stop movement
-    //stop raycast for a bit
-    //do attack thing (launch forawrd and spawn hitbox)
-    //respawn everything else
 
-    //man was dexton capping? (quite possibly)
-
-    // i fixed the attack but the stupid ray.collider.gameObject.name code is generating thousands of errors 
-    //he be a little silly like that (ignore it its stupid)
 
 }
 

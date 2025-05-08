@@ -24,7 +24,7 @@ public class exittimeyippee : MonoBehaviour
         if (collision.gameObject == player)
         {
             Debug.Log("as");
-            SceneManager.LoadScene("Win scene");
+            SceneManager.LoadScene("Win screen");
         }
 
     }

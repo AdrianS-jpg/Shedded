@@ -69,7 +69,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("You Died!");
-        //SceneManager.LoadScene("Lose");
+        SceneManager.LoadScene("Lose");
 
         // The load scene is here for when we wanna implement it
 

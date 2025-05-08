@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Audio : MonoBehaviour
 {
-    private static Audio instance = null;
+    public static Audio instance = null;
 
 
     public static Audio Instance

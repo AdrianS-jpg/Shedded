@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class comicPanel : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class comicPanel : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
         canvas = GameObject.Find("Canvas").GetComponent<NewMonoBehaviourScript>();
         spr.color = new Color (spr.color.r,spr.color.g,spr.color.b,0);
+        if (NewMonoBehaviourScript.comicPlaces[NewMonoBehaviourScript.number] == new Vector2(1000,1000))
+        {
+            SceneManager.LoadScene("Level 1");
+        }
         spr.sprite = canvas.comicImages[NewMonoBehaviourScript.number];
         transform.localPosition = NewMonoBehaviourScript.comicPlaces[NewMonoBehaviourScript.number];
         NewMonoBehaviourScript.number++;

@@ -27,7 +27,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     new Vector2(492,0),
     new Vector2(0,214),
     new Vector2(-418,-256),
-    new Vector2(417,-256)
+    new Vector2(417,-256),
+    new Vector2(1000,1000)
     };
     static public int number = 0;
     public GameObject comicPanel;
@@ -37,9 +38,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (number == 2 || number == 6|| number == 10 || number == 13)
         {
             gameObject.transform.GetChild(0).gameObject.GetComponent<comicPanel>().enabled = true;
-        } else if (number == 16){
-            SceneManager.LoadScene("Level 1");
-        }
+        } 
     }
     public void OnStartButton ()
     {
