@@ -49,11 +49,11 @@ public class comicPanel : MonoBehaviour
             Debug.Log("s");
         }
         Instantiate(gameObject, new Vector2(0, 0), Quaternion.identity, canvas.transform);
-        if (NewMonoBehaviourScript.number == 2 || NewMonoBehaviourScript.number == 6)
+        if (NewMonoBehaviourScript.number == 2 || NewMonoBehaviourScript.number == 6 || NewMonoBehaviourScript.number == 10 || NewMonoBehaviourScript.number == 13)
         {
            canvas.DestroyallChildern();
             Instantiate(gameObject, new Vector2(0, 0), Quaternion.identity, canvas.transform);
-        }
+        } 
        
         yield break;
     }
