@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        isHit = false;
         health = maxHealth;
         // slider.maxValue = maxHealth;
         // slider.value = health;
@@ -61,22 +62,22 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(Damagei());
     }
 
-    private void OnDestroy()
-    {
-        RuntimeUtilities.DestroyVolume(p_Volume, true, true);
-    }
+    //private void OnDestroy()
+    //{
+    //    RuntimeUtilities.DestroyVolume(p_Volume, true, true);
+    //}
 
     private void Die()
     {
         Debug.Log("You Died!");
-        SceneManager.LoadScene("Lose");
+        health = 6;
+        SceneManager.LoadScene("Lose screen");
 
         // The load scene is here for when we wanna implement it
 
         //this was being annoying when testing, removed for now
-        //he annoying af bro idk why he calls when i RESET THE SCENE BUT OK I GUESS DO YOUR OWN THING   
-        //Destroy(gameObject);
-    }
+        //he annoying af bro idk why he calls when i RESET THE SCENE BUT OK I GUESS DO YOUR OWN THING
+        }
     //this is optimal i promise
     IEnumerator Damagei()
     {
