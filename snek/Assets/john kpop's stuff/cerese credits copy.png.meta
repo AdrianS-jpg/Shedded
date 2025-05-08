@@ -1,0 +1,502 @@
+fileFormatVersion: 2
+guid: 85fe632502558704b8234a0b68937851
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4654067503672383838
+    second: cerese credits copy_0
+  - first:
+      213: -7746565838273298348
+    second: cerese credits copy_1
+  - first:
+      213: 2346700538543907795
+    second: cerese credits copy_2
+  - first:
+      213: 1400399329624282332
+    second: cerese credits copy_3
+  - first:
+      213: 1214160397307787280
+    second: cerese credits copy_4
+  - first:
+      213: -4739289784015773496
+    second: cerese credits copy_5
+  - first:
+      213: 6130421553613159112
+    second: cerese credits copy_6
+  - first:
+      213: -7092865310420737899
+    second: cerese credits copy_7
+  - first:
+      213: 4249499318755899348
+    second: cerese credits copy_8
+  - first:
+      213: 5636765487523893318
+    second: cerese credits copy_9
+  - first:
+      213: -659939030966437748
+    second: cerese credits copy_10
+  - first:
+      213: 8150527538891368149
+    second: cerese credits copy_11
+  - first:
+      213: -3470166642759164195
+    second: cerese credits copy_12
+  - first:
+      213: -254118213777368076
+    second: cerese credits copy_13
+  - first:
+      213: -741279277914702972
+    second: cerese credits copy_14
+  - first:
+      213: -3938879386175006562
+    second: cerese credits copy_15
+  - first:
+      213: -2697530774780437024
+    second: cerese credits copy_16
+  - first:
+      213: -7379869486340957760
+    second: cerese credits copy_17
+  - first:
+      213: 2474899404763845400
+    second: cerese credits copy_18
+  - first:
+      213: 3666373443238178720
+    second: cerese credits copy_19
+  - first:
+      213: 3038113011099653652
+    second: cerese credits copy_20
+  - first:
+      213: -6755766449560800088
+    second: cerese credits copy_21
+  - first:
+      213: -7170881268428831473
+    second: cerese credits copy_22
+  - first:
+      213: 3713694734916980058
+    second: cerese credits copy_23
+  - first:
+      213: 8800076943580814210
+    second: cerese credits copy_24
+  - first:
+      213: -5226481655325072520
+    second: cerese credits copy_25
+  - first:
+      213: 7720005953288148538
+    second: cerese credits copy_26
+  - first:
+      213: 3820019677205594540
+    second: cerese credits copy_27
+  - first:
+      213: 3369934489504722762
+    second: cerese credits copy_28
+  - first:
+      213: 7911202773188547097
+    second: cerese credits copy_29
+  - first:
+      213: -2535319049955645100
+    second: cerese credits copy_30
+  - first:
+      213: 5383976714188395477
+    second: cerese credits copy_31
+  - first:
+      213: -8410797960944274578
+    second: cerese credits copy_32
+  - first:
+      213: 5633298239062766674
+    second: cerese credits copy_33
+  - first:
+      213: 3568101308998233607
+    second: cerese credits copy_34
+  - first:
+      213: 8800320163563839115
+    second: cerese credits copy_35
+  - first:
+      213: 2623233209504018815
+    second: cerese credits copy_36
+  - first:
+      213: 9131482150576022727
+    second: cerese credits copy_37
+  - first:
+      213: -3731261588000138272
+    second: cerese credits copy_38
+  - first:
+      213: -1386977261203309528
+    second: cerese credits copy_39
+  - first:
+      213: -3411077465591514684
+    second: cerese credits copy_40
+  - first:
+      213: -4278883974116545901
+    second: cerese credits copy_41
+  - first:
+      213: 3361037431010885231
+    second: cerese credits copy_42
+  - first:
+      213: 2225483825260046161
+    second: cerese credits copy_43
+  - first:
+      213: -2717360562950864324
+    second: cerese credits copy_44
+  - first:
+      213: -4000819093715143872
+    second: cerese credits copy_45
+  - first:
+      213: 2937319164997221356
+    second: cerese credits copy_46
+  - first:
+      213: 4553418394534423132
+    second: cerese credits copy_47
+  - first:
+      213: -1707923825003345144
+    second: cerese credits copy_48
+  - first:
+      213: 3358256755561298203
+    second: cerese credits copy_49
+  - first:
+      213: 9123797186491230327
+    second: cerese credits copy_50
+  - first:
+      213: -3709754654880594947
+    second: cerese credits copy_51
+  - first:
+      213: -8522369501860804757
+    second: cerese credits copy_52
+  - first:
+      213: 2150136689536962886
+    second: cerese credits copy_53
+  - first:
+      213: 8371943521473611585
+    second: cerese credits copy_54
+  - first:
+      213: 1901767412847790184
+    second: cerese credits copy_55
+  - first:
+      213: -8140556062918022515
+    second: cerese credits copy_56
+  - first:
+      213: -8856209538695222829
+    second: cerese credits copy_57
+  - first:
+      213: -2204689364624834208
+    second: cerese credits copy_58
+  - first:
+      213: 576825446403641938
+    second: cerese credits copy_59
+  - first:
+      213: -563136041104762576
+    second: cerese credits copy_60
+  - first:
+      213: 2438581305365067521
+    second: cerese credits copy_61
+  - first:
+      213: -6002414359601512280
+    second: cerese credits copy_62
+  - first:
+      213: -8468396311036309641
+    second: cerese credits copy_63
+  - first:
+      213: 7169159977413370688
+    second: cerese credits copy_64
+  - first:
+      213: -7111200429413056002
+    second: cerese credits copy_65
+  - first:
+      213: -5210807008654515948
+    second: cerese credits copy_66
+  - first:
+      213: -68484584954272327
+    second: cerese credits copy_67
+  - first:
+      213: -6392632763920247700
+    second: cerese credits copy_68
+  - first:
+      213: -7741140349573203969
+    second: cerese credits copy_69
+  - first:
+      213: 3969690147938192844
+    second: cerese credits copy_70
+  - first:
+      213: 434047385732016226
+    second: cerese credits copy_71
+  - first:
+      213: -275069991899287710
+    second: cerese credits copy_72
+  - first:
+      213: -232903384202645617
+    second: cerese credits copy_73
+  - first:
+      213: -332773237290530139
+    second: cerese credits copy_74
+  - first:
+      213: -2181298539624772852
+    second: cerese credits copy_75
+  - first:
+      213: 4326240999299677377
+    second: cerese credits copy_76
+  - first:
+      213: -2015515547918246660
+    second: cerese credits copy_77
+  - first:
+      213: -6209071255936993082
+    second: cerese credits copy_78
+  - first:
+      213: -7136828616722791293
+    second: cerese credits copy_79
+  - first:
+      213: -6539596035320219330
+    second: cerese credits copy_80
+  - first:
+      213: -8882899068466675332
+    second: cerese credits copy_81
+  - first:
+      213: -5812572138918122183
+    second: cerese credits copy_82
+  - first:
+      213: 3461583588668312280
+    second: cerese credits copy_83
+  - first:
+      213: 286286890152489259
+    second: cerese credits copy_84
+  - first:
+      213: 4167400483941293148
+    second: cerese credits copy_85
+  - first:
+      213: -4008908943591976102
+    second: cerese credits copy_86
+  - first:
+      213: -7418076985242466460
+    second: cerese credits copy_87
+  - first:
+      213: -7274020450337408021
+    second: cerese credits copy_88
+  - first:
+      213: 3181089014482324923
+    second: cerese credits copy_89
+  - first:
+      213: -181703612539947154
+    second: cerese credits copy_90
+  - first:
+      213: 7172943991880217494
+    second: cerese credits copy_91
+  - first:
+      213: -1793735158799699513
+    second: cerese credits copy_92
+  - first:
+      213: 4893916160419738599
+    second: cerese credits copy_93
+  - first:
+      213: -2585808831956170230
+    second: cerese credits copy_94
+  - first:
+      213: -2033137564581607017
+    second: cerese credits copy_95
+  - first:
+      213: 2183529056544174056
+    second: cerese credits copy_96
+  - first:
+      213: -3059329452093424018
+    second: cerese credits copy_97
+  - first:
+      213: 8030002077966326123
+    second: cerese credits copy_98
+  - first:
+      213: -1165125477054071362
+    second: cerese credits copy_99
+  - first:
+      213: -5690400696726649554
+    second: cerese credits copy_100
+  - first:
+      213: 4030283438310667772
+    second: cerese credits copy_101
+  - first:
+      213: -7630102701191634895
+    second: cerese credits copy_102
+  - first:
+      213: 6533104982935381965
+    second: cerese credits copy_103
+  - first:
+      213: 3766237329351145713
+    second: cerese credits copy_104
+  - first:
+      213: -5363469206097217557
+    second: cerese credits copy_105
+  - first:
+      213: 1853676127488972614
+    second: cerese credits copy_106
+  - first:
+      213: -8037136550503057141
+    second: cerese credits copy_107
+  - first:
+      213: 7460770967425809999
+    second: cerese credits copy_108
+  - first:
+      213: 1606900678487045133
+    second: cerese credits copy_109
+  - first:
+      213: 8845804898511604201
+    second: cerese credits copy_110
+  - first:
+      213: 4193905261814912265
+    second: cerese credits copy_111
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cerese credits copy_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67b620f6857a7df0800000000000000
+      internalID: -181703612539947154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 26a15884ba1f798488a456354c0e7a6e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cerese credits copy_90: -181703612539947154
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f847a185afdcfb449bdc198ddaef09cc
+guid: f87bade6534f53044a503122c9767d94
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7902890508131592679
-    second: fixed healthslider code_0
+      213: 3333078352547946651
+    second: tile map ss_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fixed healthslider code_0
+      name: tile map ss_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 230
-        width: 524
-        height: 396
+        x: 0
+        y: 24
+        width: 995
+        height: 501
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e96dfbbb05bcad60800000000000000
-      internalID: 7902890508131592679
+      spriteID: b902a2c2a19714e20800000000000000
+      internalID: 3333078352547946651
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 11e4d5a7af3f99b478d9c1686ba6708b
+    spriteID: 4ef398fe94d9e7747951b503236e0d9c
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fixed healthslider code_0: 7902890508131592679
+      tile map ss_0: 3333078352547946651
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

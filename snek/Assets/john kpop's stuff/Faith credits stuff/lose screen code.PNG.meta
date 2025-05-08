@@ -129,12 +129,12 @@ TextureImporter:
       name: lose screen code_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 510
-        height: 456
+        x: 26
+        y: 58
+        width: 386
+        height: 398
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 35f3fea5138136444807ab502a9b26c1
     internalID: 0
     vertices: []
     indices: 
