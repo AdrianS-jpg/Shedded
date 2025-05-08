@@ -83,9 +83,6 @@ public class PlayerHealth : MonoBehaviour
     {
 
         GetComponent<SpriteRenderer>().color = Color.red;
-        //yield return new WaitForSeconds(0.5f);
-        //GetComponent<SpriteRenderer>().color = Color.white;
-        //yield return null;
         StartCoroutine(Flashing());
         animator.SetBool("attacking", false);
         GetComponent<Movement>().canDash = false;
