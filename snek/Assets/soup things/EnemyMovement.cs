@@ -312,15 +312,13 @@ public class EnemyMovement : MonoBehaviour
         agent.SetDestination(targ.position);
         hitbox.enabled = true;
         yield return new WaitForSeconds(0.3f);
-        
-        
-        
         for (int i = 0; i < 20; i++) 
         {
             if (PlayerHealth.isHit == false)
             {
                 if (hitbox.IsTouching(targ.GetComponent<targetcolliderscript>().hurtbox) == true)
                 {
+                    Debug.Log("aksjd");
                     targ.GetComponent<PlayerHealth>().Damage();
                     hitbox.enabled = false;
                 }

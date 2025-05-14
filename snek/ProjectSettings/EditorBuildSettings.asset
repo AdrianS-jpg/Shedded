@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/soup things/Main Menu.unity
     guid: a2271a5c24e0d99499d657bf661b64b6
   - enabled: 1
-    path: Assets/john kpop's stuff/Faith Credits.unity
-    guid: 05247f27e2e7d9a49aa8224159fedb41
+    path: Assets/john kpop's stuff/Level 1.unity
+    guid: b1e2e38c93aff5a4a86018e6532daee2
   - enabled: 1
     path: Assets/john kpop's stuff/Win screen.unity
     guid: fa74928dd7205fb4cadda61f2f16f9b6
@@ -30,8 +30,8 @@ EditorBuildSettings:
     path: Assets/john kpop's stuff/Lose screen.unity
     guid: 7719ecea9c7cbf64095501722090d580
   - enabled: 1
-    path: Assets/john kpop's stuff/Level 1.unity
-    guid: b1e2e38c93aff5a4a86018e6532daee2
+    path: Assets/john kpop's stuff/Faith Credits.unity
+    guid: 05247f27e2e7d9a49aa8224159fedb41
   - enabled: 0
     path: Assets/soup things/tut.unity
     guid: 94284f5df8721814c9d304e4e8a98fe7
